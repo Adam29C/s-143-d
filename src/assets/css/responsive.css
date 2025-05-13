@@ -1,0 +1,186 @@
+@media (max-width: 425px) {
+  .content-body {
+    margin-left: 0rem;
+    z-index: 0;
+  }
+  .card .card-body {
+    /* padding: 0 !important; */
+  }
+  .superadmin-preview-img {
+    height: 90px;
+    width: 80%;
+    object-fit: fill;
+    background-position: center;
+  }
+
+  .media-reply {
+    display: flex;
+    margin-bottom: 0px;
+    padding-top: 0px;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .card-title-text {
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-top: 20px;
+  }
+  .profile-change-password-card-padding {
+    padding: 0px 0px 20px 20px !important;
+  }
+
+  .Date-picker-control {
+    width: 19.3rem;
+  }
+  .custom-card-body {
+    padding: 20px 20px 20px 20px !important;
+  }
+}
+
+@media (min-width: 425px) and (max-width: 425px) {
+  .Date-picker-control {
+    width: 19.3rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 375px) {
+  .Date-picker-control {
+    width: 16.3rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .Date-picker-control {
+    width: 12.9rem;
+  }
+  .report-btn-main {
+    display: flex;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  .report-btn {
+    background-color: #7571f9;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: break-spaces !important;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.675rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+
+@media (max-width: 768px) {
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 450px) {
+  .custom-tab-list .react-tabs__tab {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .hamburger {
+    transition: all 0s ease-in-out 0s !important;
+  }
+  .approve-btn {
+    font-weight: 500;
+    display: inline-block;
+    margin: 5px;
+  }
+
+  .profile-note-title {
+    font-size: 1rem;
+  }
+  .react-form-wizard .wizard-card-footer {
+    padding: 0 0px !important;
+  }
+
+  .responsive-total-amount {
+    font-size: 1rem;
+  }
+
+  [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nav-header {
+    width: 0rem !important;
+  }
+  [data-sidebar-style="full"][data-layout="vertical"]
+    .menu-toggle
+    .nav-header
+    .brand-logo
+    a {
+    padding: 0rem !important;
+    /* text-align: center; */
+  }
+
+  [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .header {
+    margin-left: 0rem !important;
+    width: calc(100% - 0rem) !important;
+  }
+
+  [data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .nk-sidebar {
+    display: none;
+  }
+
+  [data-sidebar-style="full"][data-layout="vertical"]
+    .menu-toggle
+    .content-body {
+    margin-left: 0rem;
+  }
+
+  .react-responsive-modal-modal {
+    max-width: 800px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    background: #ffffff;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+    margin: 1rem;
+    padding: 0.5rem;
+    position: relative;
+    overflow-y: auto;
+    width: 90%;
+  }
+
+  .main-table-fields {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .custom-search {
+    margin-top: 0.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+}
