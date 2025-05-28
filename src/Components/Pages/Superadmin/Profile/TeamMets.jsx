@@ -6,7 +6,6 @@ const TeamMets = () => {
   const token = localStorage.getItem("token");
   const userdetails = JSON.parse(localStorage.getItem("userdetails"));
 
-
   //all state
   const [data, setData] = useState([]);
 
@@ -45,10 +44,10 @@ const TeamMets = () => {
 
   return (
     <div className="card">
-      { userdetails.role === 0 && (
+      {userdetails.role === 0 && (
         <div className="card-body">
           <h3 className="card-title-text text-center fw-bold">
-            Rich143 Games Team Members
+            Star143 Games Team Members
           </h3>
           {data &&
             data?.map((row) => (

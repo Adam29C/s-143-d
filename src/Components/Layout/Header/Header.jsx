@@ -4,7 +4,7 @@ import ToggleDark from "./ToggleDark";
 import PagesIndex from "../../Pages/PagesIndex";
 import { Remove_Space_Character } from "../../Utils/Valid_Rejex";
 import { GetExpired } from "../../Utils/UserExpired";
-import profileImage from "../../../assets/Images/profile-image.png";
+import profileImage from "../../../assets/Images/newradha.png";
 import { stringify } from "uuid";
 
 const Header = () => {

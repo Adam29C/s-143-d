@@ -6,7 +6,6 @@ import axios from "axios";
 // export const BASE_URL = "http://192.168.1.18:6999/";
 export const BASE_URL = "https://connect.rich143.com/";
 
-
 const dataservice = axios.create({
   baseURL: BASE_URL,
 });

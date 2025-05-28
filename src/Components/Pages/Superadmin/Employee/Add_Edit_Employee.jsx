@@ -72,7 +72,7 @@ function AddEmployee() {
       employeeName: userData?.name || "",
       username: userData?.username || "",
       password: userData?.password || "",
-      designation: userData?.designation || "Rich143 Employee",
+      designation: userData?.designation || "Star143 Employee",
       loginPermission: userData?.loginPermission || 0,
     },
     validate: (values) => {

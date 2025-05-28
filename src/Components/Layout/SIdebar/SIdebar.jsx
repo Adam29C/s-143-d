@@ -54,7 +54,7 @@ const SIdebar = () => {
 
   PagesIndex.useEffect(() => {
     $("title").text(`
-      Rich143 Games : ${
+      Star143 Games : ${
         location?.pathname?.split("/")[3] || location.pathname.split("/")[2]
       }`);
     // $("#SetTitle").attr(
@@ -86,7 +86,6 @@ const SIdebar = () => {
               filteredSidebar.map((item, index) => {
                 const isActive = expandedItem === index;
                 const hasNested = item.NestedElement.length > 0;
-
                 return (
                   <div key={`${item.headerTitle}_${index}`}>
                     <li
