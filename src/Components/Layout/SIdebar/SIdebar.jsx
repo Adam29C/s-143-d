@@ -54,7 +54,7 @@ const SIdebar = () => {
 
   PagesIndex.useEffect(() => {
     $("title").text(`
-      Star143 Games : ${
+      Radha567 Games : ${
         location?.pathname?.split("/")[3] || location.pathname.split("/")[2]
       }`);
     // $("#SetTitle").attr(
