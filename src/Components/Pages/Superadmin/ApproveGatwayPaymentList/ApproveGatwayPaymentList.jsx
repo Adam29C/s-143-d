@@ -16,17 +16,27 @@ const ManualRequest = () => {
   //all state
   const [activeTabIndex, setActiveTabIndex] = PagesIndex.useState(0);
   const [GetIds, setGetIds] = PagesIndex.useState([]);
+  const [getTotals, setgetTotals] = PagesIndex.useState({
+    admin_profit: 0,
+    user_profit: 0,
+  });
+
+  console.log("getTotals", getTotals);
 
   const [data, setData] = PagesIndex.useState([]);
 
   // Log the corresponding tab name
-  const tabTitles = ["pending", "approved", "rejected"];
+  const tabTitles = ["pending", "processing", "approved", "rejected", "failed"];
   const status = tabTitles[activeTabIndex];
+
   //get fund requestdata
+
   const getFundRequestList = async () => {
-    let abcccc = `${Api.GATWAYPAYMENTLIST}?start_date=${abc(
+    let abcccc = `${
+      status == "pending" ? Api.PENDINGGATWAYPAYMENTLIST : Api.GATWAYPAYMENTLIST
+    }?start_date=${abc(new Date())}&end_date=${abc(
       new Date()
-    )}&end_date=${abc(new Date())}&status=${status}`;
+    )}&status=${status}`;
 
     const res = await PagesIndex.admin_services.GATWAY_PAYMENT_LIST(
       abcccc,
@@ -34,8 +44,13 @@ const ManualRequest = () => {
     );
 
     let aarrrr = [];
+    let admin_profit = 0;
+    let user_profit = 0;
     res.data.forEach((item) => {
       let dateObj = new Date(item.created_at);
+
+      admin_profit += parseFloat(item.admin_profit_loss || 0);
+      user_profit += parseFloat(item.user_profit_loss || 0);
 
       let formattedDate = dateObj.toLocaleString("en-IN", {
         day: "2-digit",
@@ -57,6 +72,10 @@ const ManualRequest = () => {
 
     if (res?.status) {
       setData(aarrrr);
+      setgetTotals({
+        admin_profit: admin_profit,
+        user_profit: user_profit,
+      });
     }
   };
 
@@ -115,6 +134,8 @@ const ManualRequest = () => {
       value = "";
       PagesIndex.toast.success(res.message);
       getFundRequestList();
+    } else {
+      PagesIndex.toast.error(res.response.data.error);
     }
   };
 
@@ -132,7 +153,7 @@ const ManualRequest = () => {
     {
       name: "Contact No",
       selector: (row) => row.mobile,
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "130px",
       sortable: true,
     },
@@ -140,47 +161,82 @@ const ManualRequest = () => {
     {
       name: "Account No.",
       selector: (row) => row.account_no,
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "130px",
       sortable: true,
+      color: "red",
     },
     {
       name: "IFSC",
       selector: (row) => row.ifsc_code,
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "130px",
       sortable: true,
     },
     {
       name: "Wallet Amount",
       selector: (row) => row.wallet_balance,
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "150px",
       sortable: true,
     },
     {
       name: "Req. Amount",
       selector: (row) => row.amount,
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "150px",
       sortable: true,
+    },
+    {
+      name: "Admin Profit",
+      // selector: (row) => row.admin_profit_loss,
+      wrap: true,
+      width: "150px",
+      sortable: true,
+      cell: (row) => (
+        <span
+          style={{
+            color: parseInt(row.admin_profit_loss) > 0 ? "green" : "red",
+            fontWeight: "900",
+          }}
+        >
+          {row.admin_profit_loss}
+        </span>
+      ),
+    },
+    {
+      name: "User Profit",
+      // selector: (row) => row.user_profit_loss,
+      wrap: true,
+      width: "150px",
+      sortable: true,
+      cell: (row) => (
+        <span
+          style={{
+            color: parseInt(row.user_profit_loss) > 0 ? "green" : "red",
+            fontWeight: "900",
+          }}
+        >
+          {row.user_profit_loss}
+        </span>
+      ),
     },
     {
       name: "Transaction Id",
       selector: (row) => {
         return row.transaction_id || row.order_id || "null";
       },
-      wrap: true, // Text wrap enable karega
+      wrap: true,
       width: "150px",
       sortable: true,
       omit: status === "pending" ? true : false,
     },
     {
       name: "Date & Time",
-      selector: (row) => row.created_at,
+      // selector: (row) => row.created_at,
 
       selector: (row) => {
-        let dateObj = row.created_at
+        let dateObj = row.created_at;
         return dateObj.toLocaleString("en-IN", {
           day: "2-digit",
           month: "2-digit",
@@ -250,37 +306,37 @@ const ManualRequest = () => {
               onSelectedRowsChange={handleChange}
             />
             <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
-              Total Amount {totalAmount}/-
+              Total Amount - {totalAmount}/-
             </h3>
           </div>
         </>
       ),
     },
-    // {
-    //   title: "Processing Request",
-    //   content: (
-    //     <>
-    //       <div className="mt-4">
-    //         <PagesIndex.Data_Table
-    //           columns={columns}
-    //           data={data}
-    //           // selectableRows
-    //           // onSelectedRowsChange={handleChange}
-    //         />
-    //         <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
-    //           Total Amount {totalAmount}/-
-    //         </h3>
-    //       </div>
-    //     </>
-    //   ),
-    // },
+    {
+      title: "Processing Request",
+      content: (
+        <>
+          <div className="mt-4">
+            <PagesIndex.Data_Table
+              columns={columns}
+              data={data}
+              // selectableRows
+              // onSelectedRowsChange={handleChange}
+            />
+            <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
+              Total Amount -{totalAmount}/-
+            </h3>
+          </div>
+        </>
+      ),
+    },
     {
       title: "Approved Request",
       content: (
         <div className="mt-4">
           <PagesIndex.Data_Table columns={columns} data={data} />
           <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
-            Total Amount {totalAmount}/-
+            Total Amount - {totalAmount}/-
           </h3>
         </div>
       ),
@@ -291,9 +347,27 @@ const ManualRequest = () => {
         <div className="mt-4">
           <PagesIndex.Data_Table columns={columns} data={data} />{" "}
           <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
-            Total Amount {totalAmount}/-
+            Total Amount - {totalAmount}/-
           </h3>
         </div>
+      ),
+    },
+    {
+      title: "Failed Request",
+      content: (
+        <>
+          <div className="mt-4">
+            <PagesIndex.Data_Table
+              columns={columns}
+              data={data}
+              // selectableRows
+              // onSelectedRowsChange={handleChange}
+            />
+            <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
+              Total Amount - {totalAmount}/-
+            </h3>
+          </div>
+        </>
       ),
     },
   ];
@@ -308,7 +382,7 @@ const ManualRequest = () => {
         tabs={tabs}
         activeTabIndex={activeTabIndex}
         onTabSelect={(index) => {
-          setActiveTabIndex(index); // Update active tab index
+          setActiveTabIndex(index);
         }}
       />
       <PagesIndex.Toast />

@@ -223,12 +223,21 @@ const MainGameReports = ({
                 value: "PENDING",
               },
               {
+                label: "PROCESSING",
+                value: "PROCESSING",
+              },
+              {
                 label: "APPROVED",
                 value: "APPROVED",
               },
               {
                 label: "REJECTED",
                 value: "REJECTED",
+              },
+
+              {
+                label: "FAILED",
+                value: "FAILED",
               },
             ],
       label_size: 12,
