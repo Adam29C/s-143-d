@@ -188,7 +188,7 @@ const ManualRequest = () => {
       sortable: true,
     },
     {
-      name: "Admin Profit",
+      name: "Profit/Loss",
       // selector: (row) => row.admin_profit_loss,
       wrap: true,
       width: "150px",
@@ -196,31 +196,34 @@ const ManualRequest = () => {
       cell: (row) => (
         <span
           style={{
-            color: parseInt(row.admin_profit_loss) > 0 ? "green" : "red",
+            color:
+              parseInt(row.admin_profit_loss - row.amount) > 0
+                ? "green"
+                : "red",
             fontWeight: "900",
           }}
         >
-          {row.admin_profit_loss}
+          {parseInt(row.admin_profit_loss - row.amount)}
         </span>
       ),
     },
-    {
-      name: "User Profit",
-      // selector: (row) => row.user_profit_loss,
-      wrap: true,
-      width: "150px",
-      sortable: true,
-      cell: (row) => (
-        <span
-          style={{
-            color: parseInt(row.user_profit_loss) > 0 ? "green" : "red",
-            fontWeight: "900",
-          }}
-        >
-          {row.user_profit_loss}
-        </span>
-      ),
-    },
+    // {
+    //   name: "User Profit",
+    //   // selector: (row) => row.user_profit_loss,
+    //   wrap: true,
+    //   width: "150px",
+    //   sortable: true,
+    //   cell: (row) => (
+    //     <span
+    //       style={{
+    //         color: parseInt(row.user_profit_loss) > 0 ? "green" : "red",
+    //         fontWeight: "900",
+    //       }}
+    //     >
+    //       {row.user_profit_loss}
+    //     </span>
+    //   ),
+    // },
     {
       name: "Transaction Id",
       selector: (row) => {
