@@ -206,6 +206,41 @@ export const admin_Sidebar = [
     ],
   },
   {
+    id: 19,
+    route: "wallet/gatwaypaymenthistory",
+    headerTitle: "Gateways",
+    permission: "masters",
+    title: "Gateway Requests",
+    Icon: "ti-money",
+    NestedElement: [
+      {
+        id: 4,
+        title: "Pay-Out List",
+        permission: "gatwaypaymenthistorylist",
+        route: "withdraw/gatwaypayement",
+      },
+      {
+        id: 2,
+        title: "Pay-In History",
+        permission: "gatwaypaymenthistory",
+        route: "wallet/gatwaypaymenthistory",
+      },
+      {
+        id: 3,
+        title: "All Gateway History",
+        route: "gatway/history",
+        permission: "gatewayhistory",
+      },
+
+      {
+        id: 1,
+        title: "Manage Gateways",
+        permission: "managegatways",
+        route: "masters/gatways",
+      },
+    ],
+  },
+  {
     id: 8,
     route: "",
     headerTitle: "Wallet",
@@ -219,12 +254,7 @@ export const admin_Sidebar = [
       //   permission: "fundRequest",
       //   route: "wallet/manualrequest",
       // },
-      {
-        id: 8,
-        title: "Gatway Deposite History",
-        permission: "gatwaypaymenthistory",
-        route: "wallet/gatwaypaymenthistory",
-      },
+
       // {
       //   id: 1,
       //   title: "Manual Request",
@@ -282,7 +312,7 @@ export const admin_Sidebar = [
   // },
   {
     id: 10,
-    headerTitle: "Withdrawal Requests",
+    headerTitle: "Other Withdrawal Requests",
     title: "Withdrawal Requests",
     route: "",
     permission: "withdrawrequest",
@@ -311,12 +341,6 @@ export const admin_Sidebar = [
         title: "Declined Request",
         permission: "decDebit",
         route: "approvedReports/declined",
-      },
-      {
-        id: 5,
-        title: "Gatway Withdrawal List",
-        permission: "gatwaypaymenthistorylist",
-        route: "withdraw/gatwaypayement",
       },
     ],
   },
@@ -454,12 +478,6 @@ export const admin_Sidebar = [
         route: "report/alluserbids",
         permission: "allUserBIds",
       },
-      {
-        id: 17,
-        title: "Gatway History",
-        route: "gatway/history",
-        permission: "gatewayhistory",
-      },
     ],
   },
   {
@@ -560,12 +578,12 @@ export const admin_Sidebar = [
     title: "Masters",
     Icon: "ti-money",
     NestedElement: [
-      {
-        id: 0,
-        title: "Manage Gatways",
-        permission: "managegatways",
-        route: "masters/gatways",
-      },
+      // {
+      //   id: 0,
+      //   title: "Manage Gatways",
+      //   permission: "managegatways",
+      //   route: "masters/gatways",
+      // },
       {
         id: 1,
         title: "UPI Id",
