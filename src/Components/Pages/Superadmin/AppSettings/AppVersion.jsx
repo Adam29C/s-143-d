@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PagesIndex from "../../PagesIndex";
 
 const AppVersion = () => {
-  const userId = localStorage.getItem("userId");
+  let { user_id } = JSON.parse(localStorage.getItem("userdetails")) || {};
 
   //get token in localstorage
   const token = localStorage.getItem("token");
@@ -12,7 +12,8 @@ const AppVersion = () => {
   const [loading, setLoading] = PagesIndex.useState(true);
   const [isMaintanance, setIsMaintanance] = PagesIndex.useState();
   const [isForceUpdate, setIsForceUpdate] = PagesIndex.useState();
-  console.log(versionData);
+  const [IsOpenClose, setIsOpenClose] = PagesIndex.useState(false);
+
   //get version list api
   const getVersionData = async () => {
     const res = await PagesIndex.admin_services.GET_VERSION_API(token);
@@ -77,7 +78,6 @@ const AppVersion = () => {
 
       const formData = new FormData();
 
-      
       formData.append("apk", values.apkfile);
       formData.append("appVer", values.version);
       formData.append("type", values.showType);
@@ -87,7 +87,7 @@ const AppVersion = () => {
 
       // return;
       for (const pair of formData.entries()) {
-        console.log("test" , pair[0], pair[1]);
+        console.log("test", pair[0], pair[1]);
       }
       const res = await PagesIndex.admin_services.UPDATE_VERSION_API(
         formData,
@@ -151,6 +151,35 @@ const AppVersion = () => {
       getVersionData();
     }
   };
+
+  const toggleShowCalling = async () => {
+    const payload = {
+      id: user_id,
+      isCallFeatureEnabled: !IsOpenClose,
+    };
+
+    const res = await PagesIndex.admin_services.UPDATE_TOGGLE_FEATURE(
+      payload,
+      token
+    );
+    if (res.status) {
+      PagesIndex.toast.success(res.message);
+      IsOpenCloseFunc();
+    }
+  };
+
+  const IsOpenCloseFunc = async () => {
+    const res = await PagesIndex.admin_services.GET_STATUS(user_id, token);
+
+    if (res.status) {
+      setIsOpenClose(res.data.isCallFeatureEnabled);
+    }
+  };
+
+  useEffect(() => {
+    IsOpenCloseFunc();
+  }, [IsOpenClose]);
+
   return (
     <PagesIndex.Main_Containt
       title="Application Version & Other Settings"
@@ -177,6 +206,12 @@ const AppVersion = () => {
                 <h4>Force Update Is Disabled</h4>
                 <button onClick={toggleForceUpdate} className="btn submitBtn">
                   Turn {isForceUpdate} Force Update
+                </button>
+              </div>
+              <div className="col-md-6 mt-4">
+                <h4>Update IP Calling Feature</h4>
+                <button onClick={toggleShowCalling} className="btn submitBtn">
+                   IP Calling Feature {IsOpenClose ? "Enabled" : "Disabled"}
                 </button>
               </div>
             </>

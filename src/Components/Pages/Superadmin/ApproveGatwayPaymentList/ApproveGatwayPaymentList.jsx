@@ -36,7 +36,7 @@ const ManualRequest = () => {
       status == "pending" ? Api.PENDINGGATWAYPAYMENTLIST : Api.GATWAYPAYMENTLIST
     }?start_date=${abc(new Date())}&end_date=${abc(
       new Date()
-    )}&status=${status}`;
+    )}&status=${status.toUpperCase()}`;
 
     const res = await PagesIndex.admin_services.GATWAY_PAYMENT_LIST(
       abcccc,
@@ -111,31 +111,46 @@ const ManualRequest = () => {
   // };
 
   const handleStatusChange = async (id, value) => {
-    const apidata = {
-      request_id: id,
-      action: value,
-    };
+    try {
+      const apidata = {
+        request_id: id,
+        action: value,
+      };
 
-    if (value === "APPROVE") {
-      const userConfirmed = window.confirm("Do you really want to approve?");
-      if (!userConfirmed) {
-        return;
+      if (value === "APPROVE") {
+        const userConfirmed = window.confirm("Do you really want to approve?");
+        if (!userConfirmed) {
+          return;
+        }
       }
-    }
 
-    // API Call
-    const res =
-      await PagesIndex.admin_services.GATWAY_PAYMENT_DEPOSITE_OR_DECLINED(
-        apidata,
-        token
-      );
+      // API Call
 
-    if (res.status) {
-      value = "";
-      PagesIndex.toast.success(res.message);
-      getFundRequestList();
-    } else {
-      PagesIndex.toast.error(res.response.data.error);
+      let response = "";
+
+      status === "pending"
+        ? (response =
+            await PagesIndex.admin_services.GATWAY_PAYMENT_DEPOSITE_OR_DECLINED(
+              apidata,
+              token
+            ))
+        : status === "processing" || status === "failed"
+        ? (response =
+            await PagesIndex.admin_services.GATWAY_PAYMENT_DEPOSITE_OR_DECLINED123(
+              apidata,
+              token
+            ))
+        : "";
+
+      if (response.status) {
+        value = "";
+        PagesIndex.toast.success(response.message);
+        getFundRequestList();
+      } else {
+        PagesIndex.toast.error(response.error);
+      }
+    } catch (error) {
+      PagesIndex.toast.error(response.response.data.error);
     }
   };
 
@@ -193,6 +208,8 @@ const ManualRequest = () => {
       wrap: true,
       width: "150px",
       sortable: true,
+      omit: status === "pending" ? false : true,
+
       cell: (row) => (
         <span
           style={{
@@ -207,32 +224,16 @@ const ManualRequest = () => {
         </span>
       ),
     },
-    // {
-    //   name: "User Profit",
-    //   // selector: (row) => row.user_profit_loss,
-    //   wrap: true,
-    //   width: "150px",
-    //   sortable: true,
-    //   cell: (row) => (
-    //     <span
-    //       style={{
-    //         color: parseInt(row.user_profit_loss) > 0 ? "green" : "red",
-    //         fontWeight: "900",
-    //       }}
-    //     >
-    //       {row.user_profit_loss}
-    //     </span>
-    //   ),
-    // },
     {
       name: "Transaction Id",
+
       selector: (row) => {
         return row.transaction_id || row.order_id || "null";
       },
       wrap: true,
       width: "150px",
       sortable: true,
-      omit: status === "pending" ? true : false,
+      omit: status === "pending" ? false : true,
     },
     {
       name: "Date & Time",
@@ -261,20 +262,29 @@ const ManualRequest = () => {
       width: "120px",
       selector: (row) => (
         <div>
-          {status === "pending" ? (
+          {status === "pending" ||
+          status === "processing" ||
+          status === "failed" ? (
             <select
               className="p-1"
               aria-label="Default select example"
               // value={row.status}
               onChange={(e) => {
-                handleStatusChange(row?.request_id, e.target.value);
+                handleStatusChange(row?.request_id, e.target.value, status);
               }}
             >
               <option disabled selected value="">
                 select
               </option>
-              <option value="APPROVE">Approve</option>
-              <option value="REJECT">Decline</option>
+
+              {status === "failed" ? (
+                <option value="APPROVE">Retry</option>
+              ) : (
+                <>
+                  <option value="APPROVE">Approve</option>
+                  <option value="REJECT">Decline</option>
+                </>
+              )}
             </select>
           ) : (
             row.status
