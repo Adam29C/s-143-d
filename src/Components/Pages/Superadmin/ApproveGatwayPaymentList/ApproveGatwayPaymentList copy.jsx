@@ -77,7 +77,7 @@ const ManualRequest = () => {
     if (value === "APPROVE") {
       const userConfirmed = window.confirm("Do you really want to approve?");
       if (!userConfirmed) {
-        console.log("User canceled the approval.");
+      
         return; // Agar user cancel kare to function yahi stop ho jaye
       }
     }
@@ -94,7 +94,7 @@ const ManualRequest = () => {
       getFundRequestList();
     }
 
-    console.log("API Response:", res);
+
   };
 
   const totalAmount = useMemo(

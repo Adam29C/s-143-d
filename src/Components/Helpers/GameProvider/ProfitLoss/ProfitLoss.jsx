@@ -230,7 +230,6 @@ const SplitForm = ({
         let singleDigitAm = totals[1]?.values1;
         let PanaProfit = totals[0]?.values1;
 
-        // console.log("response1", response1);
 
         let MainData = response1?.data?.data2;
         let PanaData = response1?.data?.pana;

@@ -54,9 +54,7 @@ const MainGameReports = ({
     res.data.forEach((item) => {
       let dateObj = new Date(item.created_at);
 
-      console.log("====================================");
-      console.log("dateObj", dateObj);
-      console.log("====================================");
+    
 
       let formattedDate = dateObj.toLocaleString("en-IN", {
         day: "2-digit",
@@ -107,7 +105,6 @@ const MainGameReports = ({
           setfirst(1);
           ApiRoute = `${Api.WITHDRAWLIST}?status=${status}&startDate=${startdate}&endDate=${enddate}`;
 
-          // console.log("ApiRoute", ApiRoute);
         } else if (formik.values.HistoryType === "Withdraw") {
           setfirst(2);
 
@@ -142,12 +139,12 @@ const MainGameReports = ({
             (a, b) => parseDate(b.created_at) - parseDate(a.created_at)
           );
 
-          console.log("aarrrr", aarrrr);
+
 
           setTableData(aarrrr);
         }
       } catch (error) {
-        console.log(error);
+    
         const errorMessage =
           error.response?.data?.message ||
           "Something went wrong. Please try again.";
@@ -297,7 +294,7 @@ const MainGameReports = ({
       value: "order_id",
       sortable: true,
       transform: (value, row) => {
-        // console.log("row", row);
+
         return row.transaction_id || row.order_id || "null";
       },
     },
@@ -326,8 +323,6 @@ const MainGameReports = ({
       sortable: true,
     },
   ];
-
-  console.log("formik.values.HistoryType", formik.values);
 
   const totalAmount = useMemo(
     () =>

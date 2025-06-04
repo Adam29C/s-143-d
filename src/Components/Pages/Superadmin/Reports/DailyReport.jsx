@@ -120,7 +120,7 @@ const AllReports = () => {
                 });
               });
             } else if (res.reqType === "UR") {
-              // console.log("itemitem", res.data);
+     
               res.data.map((item, index) => {
                 abcded.push({
                   index: index + 1,

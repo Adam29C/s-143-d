@@ -152,7 +152,7 @@ const RevertPayment = ({
             token
           );
 
-        console.log("res", res);
+
 
         if (res.status) {
           setTableData(res?.data || res?.result);

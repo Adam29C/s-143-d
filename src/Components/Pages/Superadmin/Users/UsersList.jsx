@@ -221,8 +221,6 @@ const App = () => {
     },
   });
 
-  // console.log("GetUserProfile", GetUserProfile);
-
   const fields = [
     {
       name: "blockReason",

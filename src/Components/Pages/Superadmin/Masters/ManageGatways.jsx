@@ -17,7 +17,6 @@ const FundMode = () => {
     try {
       const res1 = await PagesIndex.admin_services.GET_GATWAYSLIST_API(token);
 
-      console.log("res1", res1);
 
       setgatwayDataList(res1?.gateways);
     } catch (error) {

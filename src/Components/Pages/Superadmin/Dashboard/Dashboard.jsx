@@ -23,7 +23,6 @@ const Dashboard_Component = () => {
 
   const [TotalPages, setTotalPages] = PagesIndex.useState(1);
 
-  console.log("TotalPages", TotalPages);
 
   const [TableData, setTableData] = PagesIndex.useState([]);
 
@@ -42,8 +41,6 @@ const Dashboard_Component = () => {
 
     const res2 =
       await PagesIndex.admin_services.APPLICATION_UPDATE_COUNT_USERS_API(token);
-
-    console.log("res1", res1);
 
     setAppUpdateCounts(res2.counts);
     setTodayDesposite(res1);
@@ -94,7 +91,7 @@ const Dashboard_Component = () => {
         }
         setTableData(res1.data.todayRegistered || []);
       } catch (error) {
-        console.error("Error fetching table data:", error);
+    
       }
     }
   };
@@ -118,7 +115,7 @@ const Dashboard_Component = () => {
   };
 
   const test12 = async (page, rowsPerPage, searchQuery) => {
-    console.log("ganpatttt");
+   
     if (IsSUbmitted) {
       try {
         const payload = {
@@ -137,7 +134,7 @@ const Dashboard_Component = () => {
 
           const totalRows = res1.data?.pagination?.totalUsers;
 
-          console.log("totalRows", totalRows);
+        
 
           if (getstatus1 === 1) {
             setTableData(res1.data.todayRegistered || []);
@@ -147,7 +144,7 @@ const Dashboard_Component = () => {
           }
           setTableData(res1.data.todayRegistered || []);
         } catch (error) {
-          console.error("Error fetching table data:", error);
+        
         }
       } catch {}
     }
@@ -158,7 +155,7 @@ const Dashboard_Component = () => {
   }, [UserPagenateData.pageno, UserPagenateData.limit]);
 
   const test = async (page, rowsPerPage, searchQuery) => {
-    console.log("SAdasdasdad");
+
     if (IsSUbmitted) {
       setModalState(true);
 

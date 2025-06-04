@@ -51,9 +51,7 @@ const Header = () => {
       let interval = setInterval(() => {
         let now = new Date();
 
-        // console.log("now.getHours()", now.getHours());
-        // console.log("now.getMinutes()", now.getMinutes());
-
+      
         if (now.getHours() === 23 && now.getMinutes() === 59) {
           if (!alertShown) {
             alert("Your Session Expired. Please Login Again.");

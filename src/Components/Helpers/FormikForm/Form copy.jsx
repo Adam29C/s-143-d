@@ -78,27 +78,9 @@ const ReusableForm = ({
   const now = moment().hour(0).minute(0);
 
   function onChange(value) {
-    // console.log(value && value.format(format));
   }
 
-  // const handleDateTimeChange = (date, name) => {
-  //   const formatted = date ? moment(date).format("h:mm a") : "";
-  //   setDateTimeStates((prev) => ({ ...prev, [name]: formatted }));
 
-  //   setDateTimeStates((prevStates) => ({
-  //     ...prevStates,
-  //     [name]: formatted,
-  //   }));
-  //   formik.setFieldValue(name, formatted);
-  // };
-
-  // const format = "h:mm a";
-
-  // const now = moment().hour(0).minute(0);
-
-  // function onChange(value) {
-  //   console.log(value && value.format(format));
-  // }
 
   const handleDateTimeChange = (date, name) => {
     const formatted = date ? moment(date).format("h:mm a") : "";

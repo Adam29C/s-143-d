@@ -36,9 +36,7 @@ const SplitForm = ({
   const [TotalPages, setTotalPages] = PagesIndex.useState(1);
   
 
-  // console.log("GetProviders && GetProviders[0]._id" ,GetProviders && GetProviders[0]._id);
-  console.log("GetProviders && GetProviders[0]._id" ,GetProviders[0] && GetProviders[0]._id);
-  
+
   const getProviders = async () => {
     const response1 =
       await PagesIndex.game_service.STARLINE_AND_JACKPOT_GAME_PROVIDERS_LIST_API(
@@ -98,46 +96,7 @@ const SplitForm = ({
 
 
 
-      // if (gameType === "JackPot") {
-      //   setGetTotal(response1.data.data1);
-      //   let gamePrice = response1.data.type[0].gamePrice;
-      //   let sumdigit = response1.data.data1[0].sumdigit;
-
-      //   response1.data.data2.forEach(function (e) {
-      //     let str = e._id;
-
-      //     let loss = 0;
-      //     let profit = 0;
-      //     let pl = e.sumdigit * gamePrice;
-
-      //     if (pl > sumdigit) {
-      //       // loss
-      //       loss = pl - sumdigit;
-      //     } else {
-      //       // profit
-      //       profit = sumdigit - pl;
-      //     }
-
-      //     singleArr.push({
-      //       _id: e._id,
-      //       digit: e._id,
-      //       bidCount: e.countBid,
-      //       sumDigit: e.sumdigit,
-      //       amountToPay: pl,
-      //       Profit: profit,
-      //       Loss: loss,
-      //     });
-      //   });
-
-      //   singleArr.sort(function (a, b) {
-      //     return a._id - b._id;
-      //   });
-
-      //   setTableTwo(singleArr);
-
-      //   // console.log("singleArr", singleArr);
-      // }
-
+    
       if (response1.status) {
         let panaTotal = 0;
         let panaBidDigit = 0;
@@ -158,7 +117,6 @@ const SplitForm = ({
         const grandTotal = panaTotal + singleDigitTotal;
         const grandTotalBid = panaBidDigit + singleDigitBidDigit;
 
-        // console.log("panaTotal", panaTotal);
 
         // Create totals array
         const totals = [
@@ -197,7 +155,6 @@ const SplitForm = ({
         let resultArray = [];
 
 
-        console.log("response1.data" ,response1.data);
         
         response1.data.data2.forEach(function (e) {
           let str = e._id;
@@ -258,7 +215,6 @@ const SplitForm = ({
           return a.digit - b.digit;
         });
 
-        console.log("singleArr", singleArr);
 
         setTableTwo(singleArr);
 
@@ -291,8 +247,6 @@ const SplitForm = ({
       }
     },
   });
-
-  console.log("rteeeee", formik.values);
 
   const fields = [
     {
@@ -489,7 +443,6 @@ const SplitForm = ({
       token
     );
 
-    // console.log("response1response1response1", response1);
 
     setTotalPages(
       response1?.pagination?.totalItems || response1?.pagination?.totalItems

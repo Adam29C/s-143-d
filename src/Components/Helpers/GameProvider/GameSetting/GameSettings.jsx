@@ -74,7 +74,7 @@ const GameProvider = ({ path, title, gameType, api_Route }) => {
       ? GameSettingList
       : gameSettings;
 
-  console.log(gameSettings);
+
 
   const columns = [
     {

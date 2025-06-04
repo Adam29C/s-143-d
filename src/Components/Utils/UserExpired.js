@@ -20,8 +20,6 @@ export const GetExpired = (tokenExpiry, navigate) => {
   let interval = setInterval(() => {
     let now = new Date();
 
-    console.log("now.getHours()", now.getHours());
-    console.log("now.getMinutes()", now.getMinutes());
 
     if (now.getHours() === 11 && now.getMinutes() === 36) {
       if (!alertShown) {

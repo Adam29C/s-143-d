@@ -45,7 +45,6 @@ const ManualRequest = () => {
 
     aarrrr.sort((a, b) => parseDate(b.created_at) - parseDate(a.created_at));
 
-    console.log("aarrrr", aarrrr);
  
     if (res?.status) {
       setData(aarrrr);

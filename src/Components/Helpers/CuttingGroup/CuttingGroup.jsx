@@ -2,7 +2,10 @@ import React from "react";
 import Split_Main_Containt from "../../Layout/Main/Split_Main_Content";
 import { useFormik } from "formik";
 import PagesIndex from "../../Pages/PagesIndex";
-import { Games_Provider_List  ,Games_Provider_List1} from "../../Redux/slice/CommonSlice";
+import {
+  Games_Provider_List,
+  Games_Provider_List1,
+} from "../../Redux/slice/CommonSlice";
 import { Api } from "../../Config/Api";
 import { today } from "../../Utils/Common_Date";
 import ReusableModal from "../Modal/ModalComponent_main";
@@ -312,8 +315,6 @@ const SplitForm = () => {
           }
         });
 
-        // console.log("jodiArray" ,jodiArray);
-        
         if (
           !values.gameSession === "Half Sangam Digits" ||
           !values.gameSession === "Full Sangam Digits"

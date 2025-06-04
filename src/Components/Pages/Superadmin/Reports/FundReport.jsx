@@ -132,28 +132,7 @@ const AllReports = () => {
         },
       ],
       fetchReportData: async (value) => {
-        // await abdced(value);
-
-        // console.log("value.bankName", value);
-
-        // if (!value.reqType) {
-        //   toast.error("Please select a Credit/Debit.");
-        //   return;
-        // }
-        // if (value.reqType === "Credit" && !value.bankName) {
-        //   toast.error("Please select Particuler Also.");
-        //   return;
-        // }
-        // if (value.reqType === "Debit" && !value.bankName && !value.admin_id) {
-        //   toast.error("Please select Particuler and admin also.");
-        //   return;
-        // }
-
-        // if (!value.bankName) {
-        //   toast.error("Please select Perticular.");
-        //   return;
-        // }
-
+      
         const payload = {
           sdate: today(value.sdate),
           edate: today(value.edate),

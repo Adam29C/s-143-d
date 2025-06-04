@@ -35,11 +35,7 @@ const SplitForm = ({
   const [Refresh, setRefresh] = PagesIndex.useState(false);
   const [TotalPages, setTotalPages] = PagesIndex.useState(1);
 
-  // console.log("GetProviders && GetProviders[0]._id" ,GetProviders && GetProviders[0]._id);
-  console.log(
-    "GetProviders && GetProviders[0]._id",
-    GetProviders[0] && GetProviders[0]._id
-  );
+ 
 
   const getProviders = async () => {
     const response1 =
@@ -156,7 +152,6 @@ const SplitForm = ({
         const grandTotal = panaTotal + singleDigitTotal;
         const grandTotalBid = panaBidDigit + singleDigitBidDigit;
 
-        // console.log("panaTotal", panaTotal);
 
         // Create totals array
         const totals = [
@@ -218,7 +213,6 @@ const SplitForm = ({
 
             let id_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-            // console.log("singleArr" ,singleArr);
 
             let result = id_array.map((id) => {
               let match = singleArr.find((item) => item._id === id);
@@ -233,10 +227,10 @@ const SplitForm = ({
                     loss: 0,
                   };
             });
-            console.log("singleArr", singleArr);
+        
             setTableTwo(result);
 
-            console.log("result", result);
+        
           } else {
             let total = 0;
             let loss = 0;
@@ -314,8 +308,7 @@ const SplitForm = ({
           let SumDigit = 0;
           let profit = panaAm;
           let loss = 0;
-          // console.log("PanaData", pannaArr);
-
+     
           if (pannaArr[tabDigit]) {
             bidCount = pannaArr[tabDigit].bidCount;
             amountToPay = pannaArr[tabDigit].amountToPay;
@@ -330,8 +323,6 @@ const SplitForm = ({
             loss = 0;
           }
         });
-
-        console.log("PanaData", pannaArr);
 
         // setTableThree(resultArray);
 

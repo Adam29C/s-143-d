@@ -39,8 +39,7 @@ const PaginatedTable = ({
       )
     );
 
-    console.log("data", data);
-
+ 
     let abc = filtered.map(
       (item, index) => (currentPage - 1) * rowsPerPage + index + 1
     );

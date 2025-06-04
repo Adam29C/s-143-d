@@ -136,8 +136,6 @@ const AllReports = () => {
           );
 
 
-          // console.log("res.pagination.total" ,res.pagination.total);
-          
 
           if (res.status) {
             setTotalPages(res.pagination.total);

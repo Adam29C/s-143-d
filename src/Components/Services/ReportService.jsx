@@ -29,7 +29,7 @@ export const JACKPOT_BIDS_REPORT_API = async (data, token) => {
 };
 
 export const GET_REPORT_DETAILS_API = async (api_Route, token) => {
-  // console.log("api_Route", api_Route);
+
 
   try {
     const res = await axios.get(`${BASE_URL}${api_Route}`, {

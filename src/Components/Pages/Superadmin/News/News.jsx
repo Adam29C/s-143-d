@@ -13,8 +13,7 @@ const News = () => {
       setNewsData(res?.data?.[0]);
     }
   };
-  // console.log(newsData?.Description);
-  //function call with useeffect
+
   PagesIndex.useEffect(() => {
     getNewsData();
   }, []);

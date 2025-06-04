@@ -556,7 +556,7 @@ export const UPDATE_NOTICE_BOARD_API = async (data, token) => {
     );
     return res?.data;
   } catch (error) {
-    // console.log(error.response)
+
     return error?.response;
   }
 };
@@ -1395,7 +1395,7 @@ export const GATWAY_PAYMENT_DEPOSITE_OR_DECLINED = async (data, token) => {
       }
     );
 
-    console.log("res", res);
+
 
     return res?.data;
   } catch (error) {
@@ -1413,7 +1413,6 @@ export const GATWAY_PAYMENT_DEPOSITE_OR_DECLINED123 = async (data, token) => {
       }
     );
 
-    console.log("res", res);
 
     return res?.data;
   } catch (error) {

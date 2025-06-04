@@ -19,7 +19,6 @@ const PaginatedTable = ({
   const [isResponsive, setIsResponsive] = useState(window.innerWidth < 768);
   const [expandedRows, setExpandedRows] = useState({});
 
-  console.log("expandedRows", expandedRows);
 
   const [isResponsive123, setIsResponsive123] = useState(
     Responsive && Responsive
@@ -42,11 +41,7 @@ const PaginatedTable = ({
     const firstElement = abc.length > 0 ? abc[0] : 0;
     const lastElement = abc.length > 0 ? abc[abc.length - 1] : 0;
 
-    // console.log(
-    //   "Showing ${firstElement} to ${lastElement} of ${result.totalRows} entries",
-    //   `Showing ${firstElement} to ${lastElement} of entries`
-    // );
-
+ 
     // Apply sorting
     if (sortConfig.key) {
       sortedData.sort((a, b) => {
@@ -173,7 +168,6 @@ const PaginatedTable = ({
     };
   }, []);
 
-  // console.log("Responsive && Responsive" ,Responsive && Responsive);
 
   const toggleRow = (index) => {
     setExpandedRows((prevIndex) => (prevIndex === index ? null : index));

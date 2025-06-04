@@ -68,7 +68,6 @@ const ManualRequest = () => {
 
     aarrrr.sort((a, b) => parseDate(b.created_at) - parseDate(a.created_at));
 
-    console.log("aarrrr", aarrrr);
 
     if (res?.status) {
       setData(aarrrr);
@@ -339,8 +338,6 @@ const ManualRequest = () => {
   };
 
   const ApprovedAll = () => {};
-
-  // console.log("GetIds", GetIds);
 
   const tabs = [
     {

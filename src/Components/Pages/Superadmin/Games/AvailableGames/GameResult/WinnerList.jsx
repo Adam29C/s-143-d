@@ -59,7 +59,7 @@ const WinnerList = () => {
 
         const totalRows = res1.data.pagination.totalItems || 10;
         let mainRes = nonEmptyCategories1;
-        console.log("mainRes", mainRes);
+
 
         let total = 0;
         mainRes.forEach((item) => {
@@ -105,7 +105,7 @@ const WinnerList = () => {
           }
         });
 
-        console.log("nonEmptyCategories", nonEmptyCategories);
+
 
         const totalRows = res.data.pagination.totalItems || 5;
         let mainRes = nonEmptyCategories;
@@ -194,9 +194,6 @@ const WinnerList = () => {
       limit: 10,
     };
 
-    console.log("dsfsdfdsf", payload);
-
-    // return;
 
     let res = "";
     if (getStatus && getStatus === "0") {
@@ -207,8 +204,7 @@ const WinnerList = () => {
           token
         );
     } else {
-      // console.log("remain");
-
+ 
       res =
         await PagesIndex.game_service.STARLINE_GAME_DISTIBUTE_FUND_WINNERS_API(
           Api.REMENAINING_CONFIRM_PAYMENT_API,
@@ -216,8 +212,6 @@ const WinnerList = () => {
           token
         );
     }
-
-    // console.log("remain", res);
 
     if (res.status) {
       setBtnVisiably(false);

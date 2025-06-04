@@ -81,10 +81,7 @@ const CustomTable = ({
       const firstElement = abc[0] || 0;
       const lastElement = abc[abc.length - 1] || 0;
 
-      // console.log(
-      //   "Showing ${firstElement} to ${lastElement} of ${result.totalRows} entries",
-      //   `Showing ${firstElement} to ${lastElement} of ${result.totalRows} entries`
-      // );
+   
       setShowCounting(
         `Showing ${firstElement} to ${lastElement || 0} of ${
           TotalPages || 0

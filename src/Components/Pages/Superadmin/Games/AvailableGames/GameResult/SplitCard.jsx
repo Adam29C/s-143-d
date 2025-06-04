@@ -29,7 +29,6 @@ const ExamplePage = () => {
   });
 
 
-  console.log("data1111111111" ,data);
   
   //get game result function
   const getGameResultApi = async () => {
@@ -107,7 +106,7 @@ const ExamplePage = () => {
 
       try {
         const res = await PagesIndex.admin_services.ADD_GAME_RESULT(req, token);
-        // console.log(res)
+     
         if (res.status) {
           PagesIndex.toast.success(res?.data?.message || res?.message);
           getGameResultApi();
@@ -324,13 +323,6 @@ const ExamplePage = () => {
     },
   ];
 
-  // const clear = ()=>{
-  //   setDisableSubmit(false)
-
-  // }
-
-  console.log(tableData);
-
   const cardLayouts = [
     {
       size: 9,
@@ -344,16 +336,7 @@ const ExamplePage = () => {
             show_clear={true}
             disabledSubmit={DisableSubmit}
 
-            // after_submit_button={
-            //   <>
-            //     <button
-            //       className=" mx-2 btn btn-danger"
-            //       onClick={() =>clear()}
-            //     >
-            //       click
-            //     </button>
-            //   </>
-            // }
+          
           />
         </div>
       ),

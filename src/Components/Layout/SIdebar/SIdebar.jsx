@@ -19,7 +19,6 @@ const SIdebar = () => {
 
   const [expandedItem, setExpandedItem] = useState(null);
 
-  // console.log("admin_Sidebar12121212", admin_Sidebar);
 
   const getPermissionApi = () => {
     if (user_id) {
@@ -57,13 +56,10 @@ const SIdebar = () => {
       Radha567 Games : ${
         location?.pathname?.split("/")[3] || location.pathname.split("/")[2]
       }`);
-    // $("#SetTitle").attr(
-    //   "title",
-    //   location?.pathname?.split("/")[3] || location.pathname.split("/")[2]
-    // );
+   
   }, [location]);
 
-  // console.log("filteredSidebar1212121", filteredSidebar);
+
 
   return (
     <div className="nk-sidebar">

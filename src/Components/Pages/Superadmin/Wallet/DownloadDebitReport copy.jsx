@@ -15,16 +15,6 @@ const DownloadDebitReport = () => {
   const [totalAmount, setTotalAmount] = PagesIndex.useState(0);
   const [btnStatus, setBtnStatus] = PagesIndex.useState("");
 
-  // console.log("TableData" ,TableData);
-
-  // const visibleFields = [
-  //   "id",
-  //   "username",
-  //   "account_holder_name",
-  //   "bank_name",
-  //   "ifsc_code",
-  //   "account_no",
-  // ];
 
   const visibleFields = [
     {

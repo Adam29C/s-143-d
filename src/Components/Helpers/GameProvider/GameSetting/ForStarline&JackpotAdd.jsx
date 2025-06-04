@@ -37,22 +37,13 @@ const ForStarlineJackpotAdd = ({
     if (res.status) {
       setData(res.data);
     }
-    // }else{
-    //   const res =
-    //   await PagesIndex.game_service.FOR_STARLINE_AND_JACPOT_PROVIDER_LIST_API(
-    //     api_Route2,
-    //     token
-    //   );
-    // if (res.status) {
-    //   setData(res.data);
-    // }
+ 
   };
 
   PagesIndex.useEffect(() => {
     getGameProviderList();
   }, []);
 
-  console.log("location?.state?.rowData.OBT", location?.state?.rowData.OBRT);
 
   const formik = PagesIndex.useFormik({
     initialValues: {

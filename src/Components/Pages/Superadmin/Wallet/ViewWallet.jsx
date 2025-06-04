@@ -56,7 +56,7 @@ const ViewWallet = () => {
       sortable: true,
       notheader: true,
       style: (row) =>
-        // console.log("rowData(row)" ,rowData(row))
+
 
         ({
           fontWeight: "bold",
@@ -236,7 +236,6 @@ const ViewWallet = () => {
         admin_id: user_id,
       };
 
-      // console.log("payload", payload);
 
       const res = await PagesIndex.admin_services.WALLET_LIST_UPDATE_WALLET_API(
         payload,

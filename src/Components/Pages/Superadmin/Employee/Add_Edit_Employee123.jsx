@@ -60,7 +60,7 @@ function AddEmployee1() {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => {
-          console.log("Form values:", values);
+        
         }}
       >
         {() => (

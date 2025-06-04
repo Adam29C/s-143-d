@@ -10,7 +10,7 @@ const ApproveReportBankManual = () => {
   //set actual date
   const actual_date_formet = getActualDateWithFormat(new Date());
 
-  console.log("actual_date_formet", actual_date_formet);
+
 
   //all state
   const [SearchInTable, setSearchInTable] = PagesIndex.useState("");
@@ -85,7 +85,7 @@ const ApproveReportBankManual = () => {
       );
   
       if (res?.status) {
-        console.log("res?.total", res.data);
+  
         let mainRes = Object.values(res.data);
         setTableData(mainRes);
   

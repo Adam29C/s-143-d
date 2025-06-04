@@ -6,7 +6,7 @@ import { Get_permissions } from "../../../Redux/slice/CommonSlice";
 import { admin_Sidebar } from "../../../Layout/SIdebar/Sidebar_data";
 import { keyMapping } from "./permissions";
 
-console.log("admin_Sidebar", admin_Sidebar);
+
 
 function AddEmployee() {
   //get token in localstorage
@@ -233,7 +233,6 @@ function AddEmployee() {
     const reverseKeyMapping = Object.fromEntries(
       Object.entries(keyMapping).map(([key, value]) => [value, key])
     );
-    // console.log('reverseKeyMapping',reverseKeyMapping)
 
     const transformedFormik22 = Object.fromEntries(
       Object.entries(formik22.values).map(([key, value]) => {
@@ -279,9 +278,6 @@ function AddEmployee() {
     };
 
 
-    console.log("addreq" ,addreq);
-    console.log("updatereq" ,updatereq);
-    
     // return;
     const res = userData
       ? await PagesIndex.admin_services.UPDATE_EMPLOYEE(updatereq, token)

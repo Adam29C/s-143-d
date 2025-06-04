@@ -43,7 +43,7 @@ const HowToPlay = () => {
 
 try {
   const res = await PagesIndex.admin_services.UPDATE_HTP_API(apidata,token);
-  console.log(res,50)
+
     if (res.status) {
       toast.success(res.message);
       getHtpeData();

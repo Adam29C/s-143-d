@@ -19,7 +19,6 @@ function AddEmployee() {
     (state) => state.CommonSlice
   );
 
-  // console.log("getPermissions" ,getPermissions);
 
   //use navigate dispatch location hooks
   const navigate = PagesIndex.useNavigate();
@@ -40,9 +39,7 @@ function AddEmployee() {
     getPermissions && getPermissions?.col_view_permission;
 
 
-    console.log("getAllPermissions" ,getAllPermissions);
-    console.log("userdataPermission" ,userdataPermission);
-    
+
   //set for show dynamic permission on add and update form
   const permissionOptions = getAllPermissions?.map((permission) => ({
     labelName: permission,
@@ -155,8 +152,6 @@ function AddEmployee() {
     : fields;
 
 
-
-    // console.log("permissionOptions" ,permissionOptions);
     
   //initial value set for permission checkbox fields
   const initialValues = useMemo(() => {
@@ -236,8 +231,7 @@ function AddEmployee() {
     const PermissionKeys = Object.keys(formik1.values).filter(
       (key) => formik1.values[key]
     );
-    // console.log("formik1.values", formik1.values);
-    // console.log("arra", arra);
+  
 
     let arabc = arra.filter((item) => {
       PermissionKeys.map((x) => {
@@ -245,13 +239,10 @@ function AddEmployee() {
       });
     });
 
-    // console.log("arabc", arabc);
+
 
     const PermissionKeysresult =
       PermissionKeys.length > 0 ? PermissionKeys : [null];
-
-    // console.log("arra", formik1.values);
-    // console.log("PermissionKeysresult", PermissionKeysresult);
 
     const updatereq = {
       username: formik.values.username,
@@ -270,7 +261,7 @@ function AddEmployee() {
       loginFor: 1,
     };
 
-    // console.log("PermissionKeysresult", PermissionKeysresult);
+
 
     return;
     const res = userData
@@ -287,13 +278,6 @@ function AddEmployee() {
     }
   };
 
-  // const filteredSidebar = filterSidebarItems(
-  //   admin_Sidebar,
-  //   role,
-  //   permissionOptions
-  // );
-
-  // console.log("filteredSidebar", admin_Sidebar);
 
   const tabs = [
     {

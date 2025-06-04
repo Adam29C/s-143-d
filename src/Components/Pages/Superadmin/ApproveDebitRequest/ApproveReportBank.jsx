@@ -12,8 +12,6 @@ const ApproveReportBank = () => {
   const [DisableSubmit, setDisableSubmit] = PagesIndex.useState(false);
 
 
-  console.log("actual_date_formet" ,actual_date_formet);
-  
 
   //all state
   const [SearchInTable, setSearchInTable] = PagesIndex.useState("");
@@ -28,7 +26,7 @@ const ApproveReportBank = () => {
 
   const [TotalPages, setTotalPages] = PagesIndex.useState(1);
 
-  console.log("TotalPages", TotalPages);
+
 
   const title = "Declined Report";
   const subtitle = "APPROVED Debit Requests : Bank Account";
@@ -86,7 +84,7 @@ try {
   );
 
   if (res?.status) {
-    console.log("res?.total", res?.total);
+
     let mainRes = Object.values(res.approvedData);
     setTableData(mainRes);
 

@@ -42,22 +42,9 @@ const ReusableForm = ({
   const handleFileChange = (event, index, name) => {
     const file = event.target.files[0];
 
-    // console.log("file" ,file);
     formik.setFieldValue(name, file);
     
-    // if (file) {
-    //   const newPreviews = [...previews];
-    //   newPreviews[index] = URL.createObjectURL(file);
-    //   setPreviews(newPreviews);
-
-    //   const reader = new FileReader();
-    //   reader.onload = () => {
-    //     formik.setFieldValue(`${name}_base64`, reader.result);
-    //   };
-    //   reader.readAsDataURL(file);
-    //   formik.setFieldValue(name, file);
-
-    // }
+ 
   };
 
   return (

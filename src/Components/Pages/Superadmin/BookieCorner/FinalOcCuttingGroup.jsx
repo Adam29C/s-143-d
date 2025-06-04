@@ -24,7 +24,6 @@ const SplitForm = () => {
 
   const [showProvider, setshowProvider] = PagesIndex.useState([]);
 
-  // console.log("showProvider", showProvider);
 
   const { gameProviders1 } = PagesIndex.useSelector(
     (state) => state.CommonSlice
@@ -113,8 +112,7 @@ const SplitForm = () => {
           let id_array = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
           response1.finalData.singleDigitArray.map((key, e) => {
-            // console.log("key" ,key);
-            // console.log("JodiPrice" ,JodiPrice);
+         
 
             let amountToPay = key.biddingPoints * JodiPrice;
 
@@ -164,7 +162,7 @@ const SplitForm = () => {
 
           aaaaaaa.sort((a, b) => parseInt(b.loss) - parseInt(a.loss));
 
-          // console.log("aaaaaaa", aaaaaaa);
+
 
           setTotalSingle(aaa);
 
@@ -324,7 +322,6 @@ const SplitForm = () => {
 
         pannaArr.sort((a, b) => parseInt(b.FinalLoss) - parseInt(a.FinalLoss));
 
-        console.log("m", m);
 
         setTotalPana(m);
 

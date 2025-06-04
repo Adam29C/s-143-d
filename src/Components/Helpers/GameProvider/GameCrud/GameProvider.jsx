@@ -31,7 +31,6 @@ const GameProvider = ({
   const [selectedRow, setSelectedRow] = useState(null);
   const [visible, setVisible] = useState(false);
   const dispatch = PagesIndex.useDispatch();
-  // console.log( selectedRow,10)
   const { gameProviders1, gameProviders } = PagesIndex.useSelector(
     (state) => state.CommonSlice
   );
@@ -81,7 +80,6 @@ const GameProvider = ({
         getGameProviderList();
       }
     } catch (error) {
-      console.log(error);
     }
   };
 

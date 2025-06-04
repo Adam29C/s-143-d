@@ -74,7 +74,7 @@ const AppVersion = () => {
       return errors;
     },
     onSubmit: async (values) => {
-      console.log("values", values);
+
 
       const formData = new FormData();
 
@@ -83,12 +83,7 @@ const AppVersion = () => {
       formData.append("type", values.showType);
       formData.append("id", versionData?._id);
 
-      // console.log('values.apkfile' ,formData);
-
-      // return;
-      for (const pair of formData.entries()) {
-        console.log("test", pair[0], pair[1]);
-      }
+      
       const res = await PagesIndex.admin_services.UPDATE_VERSION_API(
         formData,
         token

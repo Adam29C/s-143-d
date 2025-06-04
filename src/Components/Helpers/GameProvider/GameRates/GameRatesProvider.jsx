@@ -65,7 +65,7 @@ const GameRatesProvider = ({
         PagesIndex.toast.error(res?.response?.data?.message);
       }
     } catch (error) {
-      console.log(error);
+  
     }
   };
 

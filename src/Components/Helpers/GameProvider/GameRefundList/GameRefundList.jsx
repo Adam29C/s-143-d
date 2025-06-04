@@ -86,7 +86,7 @@ const RefundPayment = ({
 
         
         if (res.status) {
-          // console.log("res" ,res);
+   
           setTotalPages(
             res?.pagination?.totalCount || res?.pagination?.totalItems
           );
@@ -96,7 +96,7 @@ const RefundPayment = ({
           PagesIndex.toast.error(res.response.data.message);
         }
       } catch (error) {
-        console.log(error);
+      
         const errorMessage =
           error.response?.data?.message ||
           "Something went wrong. Please try again.";
@@ -131,7 +131,7 @@ const RefundPayment = ({
           PagesIndex.toast.error(res?.response?.data?.message);
         }
       } catch (error) {
-        console.log(error);
+       
         const errorMessage =
           error.response?.data?.message ||
           "Something went wrong. Please try again.";
@@ -223,7 +223,7 @@ const RefundPayment = ({
           PagesIndex.toast.error(res.response.data.message);
         }
       } catch (error) {
-        console.log(error);
+   
       } finally {
         setIsSUbmittedConfirm(false); // Enable button after response
       }
@@ -283,7 +283,7 @@ const RefundPayment = ({
         PagesIndex.toast.error(res.response.data.message);
       }
     } catch (error) {
-      console.log(error);
+
     }
   };
 

@@ -15,7 +15,6 @@ const GameProviderAdd = () => {
   const dispatch = PagesIndex.useDispatch();
 
   const data = PagesIndex.useSelector((state) => {
-  console.log("data" ,state.CommonSlice);
 
     return state.CommonSlice.gameProviders1;
   });

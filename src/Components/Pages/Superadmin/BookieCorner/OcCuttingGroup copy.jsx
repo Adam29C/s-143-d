@@ -162,9 +162,7 @@ const SplitForm = () => {
               profit = singleDigit - pl;
             }
 
-            console.log("profit", profit);
-            console.log("loss", loss);
-
+  
             singleArr.push({
               _id: e._id,
               countBid: e.countBid,
@@ -198,8 +196,6 @@ const SplitForm = () => {
               });
             }
           });
-
-          console.log("aaaaaaa ", aaaaaaa);
 
           // Sort the array by `_id` if needed
           aaaaaaa.sort((a, b) => a._id - b._id);

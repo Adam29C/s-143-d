@@ -264,7 +264,7 @@ const PendingBankRequests = () => {
       return errors;
     },
     onSubmit: async (values) => {
-      // console.log("RowDetails", RowDetails);
+
 
       const apidata = {
         rowId: RowDetails._id,
@@ -309,22 +309,7 @@ const PendingBankRequests = () => {
             Refresh={Refresh}
           />
 
-          {/* <PagesIndex.TableWitCustomPegination
-            data={tableData}
-            initialRowsPerPage={5}
-            SearchInTable={SearchInTable}
-            visibleFields={visibleFields}
-            UserFullButtonList={UserFullButtonList}
-            searchInput={
-              <input
-                type="text"
-                placeholder="Search..."
-                value={SearchInTable}
-                onChange={(e) => setSearchInTable(e.target.value)}
-                className="form-control ms-auto"
-              />
-            }
-          /> */}
+       
           <h3 className="ml-3 mb-3 fw-bold responsive-total-amount">
             Total Amount {totalAmount}/-
           </h3>

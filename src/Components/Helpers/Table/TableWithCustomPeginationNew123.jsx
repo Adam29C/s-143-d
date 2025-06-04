@@ -39,10 +39,6 @@ const PaginatedTable = ({
     const firstElement = abc.length > 0 ? abc[0] : 0;
     const lastElement = abc.length > 0 ? abc[abc.length - 1] : 0;
 
-    // console.log(
-    //   "Showing ${firstElement} to ${lastElement} of ${result.totalRows} entries",
-    //   `Showing ${firstElement} to ${lastElement} of entries`
-    // );
 
     // Apply sorting
     if (sortConfig.key) {
@@ -170,7 +166,6 @@ const PaginatedTable = ({
     };
   }, []);
 
-  // console.log("Responsive && Responsive" ,Responsive && Responsive);
 
   return (
     <div className="container">
