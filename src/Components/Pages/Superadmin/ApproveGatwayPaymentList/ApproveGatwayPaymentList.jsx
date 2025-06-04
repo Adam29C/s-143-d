@@ -117,7 +117,7 @@ const ManualRequest = () => {
         action: value,
       };
 
-      if (value === "APPROVE") {
+      if (value === "APPROVE" || value === "REJECT") {
         const userConfirmed = window.confirm("Do you really want to approve?");
         if (!userConfirmed) {
           return;
@@ -163,6 +163,7 @@ const ManualRequest = () => {
     {
       name: "User Name",
       selector: (row) => row.username,
+      width: "130px",
       sortable: true,
     },
     {
@@ -177,7 +178,7 @@ const ManualRequest = () => {
       name: "Account No.",
       selector: (row) => row.account_no,
       wrap: true,
-      width: "130px",
+      width: "140px",
       sortable: true,
       color: "red",
     },
@@ -206,7 +207,7 @@ const ManualRequest = () => {
       name: "Profit/Loss",
       // selector: (row) => row.admin_profit_loss,
       wrap: true,
-      width: "150px",
+      width: "130px",
       sortable: true,
       omit: status === "pending" ? false : true,
 
@@ -220,25 +221,25 @@ const ManualRequest = () => {
             fontWeight: "900",
           }}
         >
-          {parseInt(row.admin_profit_loss - row.amount)}
+          {parseInt(row.admin_profit_loss - row.amount) > 0
+            ? `+ ${parseInt(row.admin_profit_loss - row.amount)}`
+            : `- ${parseInt(row.admin_profit_loss - row.amount)}`}
         </span>
       ),
     },
     {
       name: "Transaction Id",
-
       selector: (row) => {
         return row.transaction_id || row.order_id || "null";
       },
       wrap: true,
-      width: "150px",
+      width: "10px",
       sortable: true,
-      omit: status === "pending" ? false : true,
+      omit: status === "pending" ? true : true,
     },
     {
       name: "Date & Time",
       // selector: (row) => row.created_at,
-
       selector: (row) => {
         let dateObj = row.created_at;
         return dateObj.toLocaleString("en-IN", {
@@ -252,17 +253,48 @@ const ManualRequest = () => {
         });
       },
       wrap: true, // Text wrap enable karega
-      width: "200px",
+      width: "150px",
       sortable: true,
     },
-
     {
       name: "Action",
-      wrap: true, // Text wrap enable karega
-      width: "120px",
+      wrap: false, // Text wrap enable karega
+      omit: status === "rejected" || status === "approved" ? true : false,
+      width: "220px",
       selector: (row) => (
         <div>
-          {status === "pending" ||
+          <div className="d-flex">
+            {status === "processing" || status === "pending" ? (
+              <>
+                <button
+                  type="button"
+                  className="btn  btn-primary px-2 py-1 mx-1"
+                  onClick={(e) => {
+                    handleStatusChange(row?.request_id, "APPROVE");
+                  }}
+                >
+                  {status === "failed" ? "RETRY" : "APPROVE"}
+                </button>
+                <button
+                  type="button"
+                  className="btn  btn-danger px-2 py-1 w-50"
+                  onClick={(e) => {
+                    handleStatusChange(
+                      row?.request_id,
+
+                      "REJECT"
+                    );
+                  }}
+                >
+                  Decline
+                </button>
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+
+          {/* {status === "pending" ||
           status === "processing" ||
           status === "failed" ? (
             <select
@@ -288,7 +320,7 @@ const ManualRequest = () => {
             </select>
           ) : (
             row.status
-          )}
+          )} */}
         </div>
       ),
     },
