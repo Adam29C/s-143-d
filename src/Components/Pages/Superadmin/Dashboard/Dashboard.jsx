@@ -255,7 +255,7 @@ const Dashboard_Component = () => {
         <div className="container-fluid mt-3">
           <div className="row">
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow={<span onClick={() => GetTableData(3)}>View Users</span>}
               counts={AppUpdateCounts.total}
               Title="All Users"
@@ -279,7 +279,7 @@ const Dashboard_Component = () => {
               ResponsiveClass="col-xl-3 col-md-6"
             /> */}
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow="Till Now"
               counts={data?.totol_bids}
               Title="Total Bids Amount"
@@ -287,7 +287,7 @@ const Dashboard_Component = () => {
               ResponsiveClass="col-xl-3 col-md-6"
             />
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow="Till Now"
               counts={data?.total_paid_today}
               Title="Amount Paid"
@@ -295,7 +295,7 @@ const Dashboard_Component = () => {
               ResponsiveClass="col-xl-3 col-md-6"
             />
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow="Till Now"
               counts={data?.total_wallet_balance}
               Title="Wallet Amount"
@@ -322,7 +322,7 @@ const Dashboard_Component = () => {
               ResponsiveClass="col-xl-3 col-md-6"
             />
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow={<span onClick={() => GetTableData(4)}>View Users</span>}
               counts={AppUpdateCounts.pending}
               Title="App Update Pending Users"
@@ -330,7 +330,7 @@ const Dashboard_Component = () => {
               ResponsiveClass="col-xl-3 col-md-6"
             />
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow={<span onClick={() => GetTableData(5)}>View Users</span>}
               counts={AppUpdateCounts.complete}
               Title="App Update Complete Users"
@@ -371,7 +371,7 @@ const Dashboard_Component = () => {
             />
 
             <Cards
-              icon="mdi mdi-trending-up"
+              icon="fa-solid fa-chart-simple"
               tillnow={yesTerday?.createdAt}
               counts={yesTerday?.walletBal_12oClock}
               Title="Yesterday Wallet Balance"

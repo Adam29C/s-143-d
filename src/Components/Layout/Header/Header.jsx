@@ -51,7 +51,6 @@ const Header = () => {
       let interval = setInterval(() => {
         let now = new Date();
 
-      
         if (now.getHours() === 23 && now.getMinutes() === 59) {
           if (!alertShown) {
             alert("Your Session Expired. Please Login Again.");
@@ -80,7 +79,8 @@ const Header = () => {
         <div className="nav-control">
           <div className="hamburger">
             <span className="toggle-icon">
-              <i className="icon-menu" onClick={() => toggleSidebar()} />
+              
+              <i className="fa-solid fa-bars" onClick={() => toggleSidebar()} />
             </span>
           </div>
         </div>
@@ -98,7 +98,8 @@ const Header = () => {
               >
                 <img src={profileImage} alt="" />
                 <span className="pro-user-name ml-1">
-                  {userdetails?.name} <i className="mdi mdi-chevron-down" />
+                  {userdetails?.name}
+                  <i class="fa-solid fa-angle-down"></i>
                 </span>
               </div>
               <div

@@ -5,7 +5,7 @@ export const admin_Sidebar = [
     title: "Dashboard",
     permission: "main",
     route: "dashboard",
-    Icon: "icon-speedometer",
+    Icon: "fa-solid fa-house",
     NestedElement: [],
   },
   {
@@ -211,7 +211,7 @@ export const admin_Sidebar = [
     headerTitle: "Gateways",
     permission: "masters",
     title: "Gateway Requests",
-    Icon: "ti-money",
+    Icon: "fa-solid fa-dollar-sign",
     NestedElement: [
       {
         id: 4,
@@ -378,7 +378,7 @@ export const admin_Sidebar = [
     route: "",
     title: "Reports",
     permission: "reports",
-    Icon: "ti-agenda",
+    Icon: "fa-solid fa-sheet-plastic",
     NestedElement: [
       {
         id: 1,
@@ -576,7 +576,7 @@ export const admin_Sidebar = [
     headerTitle: "Masters",
     permission: "masters",
     title: "Masters",
-    Icon: "ti-money",
+    Icon: "fa-solid fa-chess-king",
     NestedElement: [
       // {
       //   id: 0,

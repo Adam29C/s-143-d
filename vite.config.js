@@ -12,8 +12,8 @@ export default defineConfig({
   server: {
     host: '0.0.0.0', // All interfaces
     port: 3005,
-    allowedHosts: [
-      'random.myadvp.cfd', // Add your domain here
-    ],
+    // allowedHosts: [
+    //   // 'random.myadvp.cfd', // Add your domain here
+    // ],
   },
 })

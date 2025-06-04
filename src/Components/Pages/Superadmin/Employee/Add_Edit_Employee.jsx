@@ -6,8 +6,6 @@ import { Get_permissions } from "../../../Redux/slice/CommonSlice";
 import { admin_Sidebar } from "../../../Layout/SIdebar/Sidebar_data";
 import { keyMapping } from "./permissions";
 
-
-
 function AddEmployee() {
   //get token in localstorage
   const token = localStorage.getItem("token");
@@ -277,7 +275,6 @@ function AddEmployee() {
       loginFor: 1,
     };
 
-
     // return;
     const res = userData
       ? await PagesIndex.admin_services.UPDATE_EMPLOYEE(updatereq, token)
@@ -296,7 +293,7 @@ function AddEmployee() {
   const tabs = [
     {
       title: "Personal details",
-      icon: "ti-user",
+      icon: "fa-solid fa-user",
       content: (
         <>
           <PagesIndex.Formikform
@@ -310,7 +307,7 @@ function AddEmployee() {
     },
     {
       title: "Manage Permissions",
-      icon: "ti-check",
+      icon: "fa-solid fa-check",
       content: (
         <PagesIndex.Formikform
           fieldtype={fields1.filter((field) => !field.showWhen)}
