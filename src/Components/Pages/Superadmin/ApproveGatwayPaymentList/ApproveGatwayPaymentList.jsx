@@ -264,7 +264,9 @@ const ManualRequest = () => {
       selector: (row) => (
         <div>
           <div className="d-flex">
-            {status === "processing" || status === "pending" ? (
+            {status === "processing" ||
+            status === "pending" ||
+            status === "failed" ? (
               <>
                 <button
                   type="button"
@@ -275,19 +277,21 @@ const ManualRequest = () => {
                 >
                   {status === "failed" ? "RETRY" : "APPROVE"}
                 </button>
-                <button
-                  type="button"
-                  className="btn  btn-danger px-2 py-1 w-50"
-                  onClick={(e) => {
-                    handleStatusChange(
-                      row?.request_id,
+                {status !== "failed" && (
+                  <button
+                    type="button"
+                    className="btn  btn-danger px-2 py-1 w-50"
+                    onClick={(e) => {
+                      handleStatusChange(
+                        row?.request_id,
 
-                      "REJECT"
-                    );
-                  }}
-                >
-                  Decline
-                </button>
+                        "REJECT"
+                      );
+                    }}
+                  >
+                    Decline
+                  </button>
+                )}
               </>
             ) : (
               ""
