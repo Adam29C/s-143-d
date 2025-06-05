@@ -92,9 +92,9 @@ const Users = () => {
   return (
     <>
       <PagesIndex.Auth_Containt title="" col_size={"col-md-6 "}>
-        <span className="login-span">
+        {/* <span className="login-span">
           <img className="login-logo" src={logo} alt="logo" />
-        </span>
+        </span> */}
         <PagesIndex.Formikform
           fieldtype={fields.filter((field) => !field.showWhen)}
           formik={formik}

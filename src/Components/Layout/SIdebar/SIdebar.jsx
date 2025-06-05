@@ -19,7 +19,6 @@ const SIdebar = () => {
 
   const [expandedItem, setExpandedItem] = useState(null);
 
-
   const getPermissionApi = () => {
     if (user_id) {
       dispatch(Get_permissions(user_id));
@@ -53,13 +52,8 @@ const SIdebar = () => {
 
   PagesIndex.useEffect(() => {
     $("title").text(`
-      Radha567 Games : ${
-        location?.pathname?.split("/")[3] || location.pathname.split("/")[2]
-      }`);
-   
+    ${location?.pathname?.split("/")[3] || location.pathname.split("/")[2]}`);
   }, [location]);
-
-
 
   return (
     <div className="nk-sidebar">
