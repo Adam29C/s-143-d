@@ -22149,3 +22149,28 @@ a:hover {
   justify-content: center;
   padding: 0;
 }
+.full-screen-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color); /* Match your green background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.centered-image {
+  max-width: 90%;
+  max-height: 90%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+@media (min-width: 1024px) {
+  .full-screen-container {
+    justify-content: flex-start; /* Align to left side */
+    padding-left: 40%; /* Add left margin */
+  }
+}

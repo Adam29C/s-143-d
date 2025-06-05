@@ -124,6 +124,7 @@ import GatwayHistory123 from "../../Pages/Superadmin/Reports/GatwayHistory";
 
 // import AddEmployee32 from "../../Pages/Superadmin/Employee/Add_Edit_Employee32";
 import AddEmployee from "../../Pages/Superadmin/Employee/Add_Edit_Employee";
+import Home from "../../Pages/Superadmin/Home/Home";
 
 // Mock authentication status
 
@@ -133,6 +134,11 @@ const adminRoutes = [
     element: <PrivateRoute element={Superadmin_Wraper} />,
     errorElement: <ErrorPage />,
     children: [
+      {
+      path:"home",
+      element:<PrivateRoute element={Home}/>
+
+      },
       {
         path: "dashboard",
         element: <PrivateRoute element={Dashboard} />,

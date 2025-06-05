@@ -59,8 +59,8 @@ const Users = () => {
         if (res?.status) {
           PagesIndex.toast.success(res?.message);
           setTimeout(() => {
-            navigate("/admin/dashboard");
-          }, 2000);
+            navigate("/admin/home");
+          }, 500);
         } else {
           PagesIndex.toast.error(res.message);
         }
