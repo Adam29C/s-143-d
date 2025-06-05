@@ -261,9 +261,10 @@ input:checked + .slider:before {
 
 .card-color {
   /* background: #4a8c6b2e; */
-  background: #3c7c8334;
-  box-shadow: rgba(21, 152, 156, 0.25) 0px 30px 50px -12px inset,
-    rgba(21, 84, 95, 0.3) 0px 18px 26px -18px inset;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 
 .edit-icon {
@@ -284,7 +285,7 @@ input:checked + .slider:before {
 /* set background image favicon css start*/
 #dynamic-background {
   /* background-image: url("../Images/back-image-2.jpg"); */
-  background: #000;
+  background: #f9f9f9;
 }
 
 #company-logo {
@@ -488,7 +489,7 @@ input:checked + .slider:before {
     #1c3e35 -39.91%,
     #4aa48c 117.67%
   ) !important; */
-   background-color: var(--primary-color);
+  background-color: var(--primary-color);
   border-color: #1c3e35;
 }
 
@@ -791,4 +792,21 @@ rs-calendar rs-calendar-time-view rs-calendar-only-time
 .testing {
   border: none;
   outline: none;
+}
+
+.pageName {
+  border-radius: 30px !important;
+}
+
+.login-logo {
+  height: 40px;
+  width: 200px;
+  text-align: center;
+}
+
+.login-span {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
 }

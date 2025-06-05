@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { today, getActualDateFormate } from "../../Utils/Common_Date";
 import CustomDatePicker from "./DatePickers";
 import { useFormik, FieldArray, FormikProvider } from "formik";
-import TimePicker from  "../../Testing/aaaa"
+import TimePicker from "../../Testing/aaaa";
 // col-form-label this class for input alignment apply on label
 const ReusableForm = ({
   fromDate,
@@ -30,6 +30,7 @@ const ReusableForm = ({
   after_submit_button1,
   show_clear,
   setUnable,
+  pageName,
 }) => {
   const location = useLocation();
 
@@ -43,8 +44,6 @@ const ReusableForm = ({
     const file = event.target.files[0];
 
     formik.setFieldValue(name, file);
-    
- 
   };
 
   return (
@@ -120,7 +119,6 @@ const ReusableForm = ({
                           className={`mb-3 col-md-4 col-sm-6 col-6 col-lg-${field.col_size}`}
                           key={option.id}
                         >
-                          
                           <div className="form-check custom-checkbox mb-2 ">
                             <input
                               type={field.type}
@@ -137,7 +135,6 @@ const ReusableForm = ({
                                   ? option.checked
                                   : formik.values[option.name] || false
                               }
-                        
                             />
                             <label
                               className="form-check-label fw-bolder "
@@ -246,7 +243,11 @@ const ReusableForm = ({
                             }
                             placeholder={field.label}
                             {...formik.getFieldProps(field.name)}
-                            className={` form-control`}
+                            className={
+                              pageName
+                                ? "pageName form-control"
+                                : ` form-control    `
+                            }
                           />
                           <i
                             class={`fa-solid ${
@@ -291,8 +292,8 @@ const ReusableForm = ({
                   </>
                 ) : field.type === "time" ? (
                   <>
-                  {/* <TimePicker/> */}
-                  
+                    {/* <TimePicker/> */}
+
                     <div className={`col-lg-${field.col_size} mb-3`}>
                       <label
                         className={`custom-label col-lg-${field.label_size}`}
@@ -390,7 +391,6 @@ const ReusableForm = ({
                               </span>
                             )}
                           </div>
-                       
                         </div>
 
                         {formik.errors[field.name] && (
@@ -505,7 +505,11 @@ const ReusableForm = ({
                           <input
                             type="text"
                             autoComplete="off"
-                            className="form-control"
+                            className={
+                              pageName
+                                ? "pageName form-control"
+                                : `form-control`
+                            }
                             style={{
                               background: field.disable ? "#eeeeee" : "",
                             }}
@@ -555,12 +559,14 @@ const ReusableForm = ({
                 <>
                   <button
                     // style={{ background: "#4e3897" }}
-                    className={`btn  submitBtn  mt-2 ${button_Size} ${
+                    className={`btn  submitBtn  mt-2 ${button_Size}
+                          ${pageName ? "pageName " : ``}
+                    
+                    ${
                       location.pathname === "resetpassword" ? "col-md-11" : ""
                     } ${btn_design && "btn_design"}`}
                     type="submit"
                     disabled={formik.isSubmitting || disabledSubmit}
-                  
                   >
                     {/* <Loader/> */}
                     {btn_name}
@@ -569,7 +575,7 @@ const ReusableForm = ({
               ) : (
                 ""
               )}
-             
+
               {after_submit_button1}
             </div>
           </div>

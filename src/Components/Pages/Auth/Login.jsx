@@ -1,4 +1,5 @@
 import PagesIndex from "../PagesIndex";
+import logo from "../../../assets/Images/loginbg.png";
 
 const Users = () => {
   const dispatch = PagesIndex.useDispatch();
@@ -90,14 +91,17 @@ const Users = () => {
 
   return (
     <>
-      <PagesIndex.Auth_Containt title="" col_size={"col-md-6"}>
-        {/* <PagesIndex.Logo /> */}
+      <PagesIndex.Auth_Containt title="" col_size={"col-md-6 "}>
+        <span className="login-span">
+          <img className="login-logo" src={logo} alt="logo" />
+        </span>
         <PagesIndex.Formikform
           fieldtype={fields.filter((field) => !field.showWhen)}
           formik={formik}
           btn_name={loding ? <PagesIndex.Loader text="Login" /> : "Login"}
           button_Size={"w-100"}
           show_submit={true}
+          pageName="auth"
         />
       </PagesIndex.Auth_Containt>
       <PagesIndex.Toast />
