@@ -25,9 +25,9 @@ const Header = () => {
     }, 100);
     localStorage.removeItem("token");
     localStorage.removeItem("userdetails");
-    localStorage.setItem("token", "");
+    // localStorage.setItem("token", "");
 
-    localStorage.setItem("userdetails", JSON.stringify({}));
+    // localStorage.setItem("userdetails", JSON.stringify({}));
 
     PagesIndex.toast.success("Logged Out Successfully");
   };

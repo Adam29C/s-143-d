@@ -5,7 +5,7 @@ import PagesIndex from "../../Pages/PagesIndex";
 import { Get_permissions } from "../../Redux/slice/CommonSlice";
 import { filterSidebarItems } from "./FilteredPermissions";
 import { useMyContext } from "../../Hooks/Context/CreateSidebarContext";
-
+import faviconlogo from "../../../assets/Images/newradha.png"
 const SIdebar = () => {
   const location = useLocation();
 
@@ -49,10 +49,22 @@ const SIdebar = () => {
     role,
     getPermissions
   );
-
+const token=localStorage.getItem('token')
   PagesIndex.useEffect(() => {
     $("title").text(`
     ${location?.pathname?.split("/")[3] || location.pathname.split("/")[2]}`);
+// if(token){
+//    const favicon = document.querySelector("link[rel*='icon']") || document.createElement('link');
+//     favicon.type = 'image/x-icon';
+//     favicon.rel = 'shortcut icon';
+//     favicon.href = '../../../assets/Images/newradha.png'; // ← Replace with your actual favicon path
+
+//     if (!document.querySelector("link[rel*='icon']")) {
+//       document.head.appendChild(favicon);
+//     }
+   
+// }
+  
   }, [location]);
 
   return (

@@ -12,6 +12,7 @@ import {
 import { Outlet } from "react-router-dom";
 import PagesIndex from "../../Pages/PagesIndex.jsx";
 import { object } from "yup";
+import DynamicFavicon from "../../Utils/DyanamicFavicon.jsx";
 
 function MainContent() {
   const { SidebarToggle, sidebarRef } = useMyContext();
@@ -69,7 +70,7 @@ function MainContent() {
           <SIdebar />
         </>
       )}
-
+<DynamicFavicon/>
       <Outlet />
       <Footer />
     </div>
