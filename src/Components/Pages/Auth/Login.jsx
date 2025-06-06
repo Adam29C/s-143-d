@@ -88,7 +88,7 @@ const Users = () => {
       col_size: 12,
     },
   ];
-
+  
   return (
     <>
       <PagesIndex.Auth_Containt title="" col_size={"col-md-6 "}>
