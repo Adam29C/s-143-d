@@ -40,7 +40,10 @@ const ViewWallet = () => {
     const Previous_Amount = data?.Previous_Amount;
     const Current_Amount = data?.Current_Amount;
 
-    if (parseInt(Previous_Amount) < parseInt(Current_Amount)) {
+    if (
+      parseInt(Previous_Amount) < parseInt(Current_Amount) ||
+      description.includes("withdrawal request has been declined by admin")
+    ) {
       return "green";
     } else if (description.includes("withdrawn")) {
       return "red";
@@ -55,14 +58,11 @@ const ViewWallet = () => {
       value: "Previous_Amount",
       sortable: true,
       notheader: true,
-      style: (row) =>
-
-
-        ({
-          fontWeight: "bold",
-          color: rowData(row),
-          width: "20px !important",
-        }),
+      style: (row) => ({
+        fontWeight: "bold",
+        color: rowData(row),
+        width: "20px !important",
+      }),
     },
     {
       name: "Transaction Amount",
@@ -235,7 +235,6 @@ const ViewWallet = () => {
         particular: values.particular,
         admin_id: user_id,
       };
-
 
       const res = await PagesIndex.admin_services.WALLET_LIST_UPDATE_WALLET_API(
         payload,

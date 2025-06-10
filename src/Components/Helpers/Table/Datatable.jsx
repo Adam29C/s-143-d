@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-// import {DataTable,createTheme } from "react-data-table-component";
 import DataTable from "react-data-table-component";
-
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import "../../../assets/css/Data_Table.css"; // Ensure you import your CSS or put styles globally
 
 const Data_Table = ({
   columns,
@@ -16,7 +15,6 @@ const Data_Table = ({
   const [deviceType, setDeviceType] = useState("desktop");
   const [visibleColumns, setVisibleColumns] = useState(columns);
 
-  //datatable custom design
   const customStyles = {
     rows: {
       style: {
@@ -25,11 +23,8 @@ const Data_Table = ({
     },
     headCells: {
       style: {
-        //  /   background: "linear-gradient(97.51deg, #1C3E35 -39.91%, #4AA48C 117.67%);",
-        // color:"black",
         fontSize: "14px",
         fontWeight: "bold",
-        // border:"1px solid #dee2e6",
         justifyContent: "center",
         textAlign: "center",
         whiteSpace: "normal",
@@ -45,31 +40,28 @@ const Data_Table = ({
     },
   };
 
-  const func = () => {
-    const handleResize = () => {
-      let newVisibleColumns;
-      if (window.innerWidth <= 320) {
-        newVisibleColumns = columns.slice(0, 1);
-        setDeviceType("mobile");
-      } else if (window.innerWidth <= 425) {
-        newVisibleColumns = columns.slice(0, 2);
-        setDeviceType("mobile");
-      } else if (window.innerWidth <= 768) {
-        newVisibleColumns = columns.slice(0, 4);
-        setDeviceType("tablet");
-      } else {
-        newVisibleColumns = columns;
-        setDeviceType("desktop");
-      }
-      setVisibleColumns(newVisibleColumns);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+  const handleResizeColumns = () => {
+    let newVisibleColumns;
+    if (window.innerWidth <= 320) {
+      newVisibleColumns = columns.slice(0, 1);
+      setDeviceType("mobile");
+    } else if (window.innerWidth <= 425) {
+      newVisibleColumns = columns.slice(0, 2);
+      setDeviceType("mobile");
+    } else if (window.innerWidth <= 768) {
+      newVisibleColumns = columns.slice(0, 4);
+      setDeviceType("tablet");
+    } else {
+      newVisibleColumns = columns;
+      setDeviceType("desktop");
+    }
+    setVisibleColumns(newVisibleColumns);
   };
+
   useEffect(() => {
-    func();
+    handleResizeColumns();
+    window.addEventListener("resize", handleResizeColumns);
+    return () => window.removeEventListener("resize", handleResizeColumns);
   }, [columns]);
 
   const columns1 = [
@@ -100,11 +92,18 @@ const Data_Table = ({
     );
   };
 
+  const CustomLoader = () => (
+    <div className="custom-loader-wrapper">
+      <div className="custom-spinner"></div>
+      <div className="loader-text">Loading Data...</div>
+    </div>
+  );
+
   return (
     <>
       <DataTableExtensions
         columns={columns1}
-        data={data}
+        data={ data}
         print={false}
         export={false}
         filter={showFilter}
@@ -120,14 +119,18 @@ const Data_Table = ({
           selectableRows={selectableRows}
           onSelectedRowsChange={onSelectedRowsChange}
           noDataComponent={
-            isLoading ? (
-              <div className="user-loading-main">
-                {/* <Loader lodersize={25} /> */}
-              </div>
-            ) : (
-              "There are no records to display"
-            )
+            isLoading ? <CustomLoader /> : "There are no records to display"
           }
+          // noDataComponent={
+          //   isLoading ? (
+          //     <div className="user-loading-main">
+          //       <div className="loader" />
+          //       testng Gan[at]
+          //     </div>
+          //   ) : (
+          //     "There are no records to display"
+          //   )
+          // }
           expandableRows={deviceType === "mobile" || deviceType === "tablet"}
           expandableRowsComponent={ExpandedComponent}
           responsive
