@@ -22174,3 +22174,60 @@ a:hover {
     padding-left: 40%; /* Add left margin */
   }
 }
+
+
+
+.profit {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background-color: #28a765;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+.losss {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  background-color: #dc3545;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+.pending-status {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  background-color: #a4a42d;
+  padding: 6px 8px;
+  border-radius: 5px;
+}
+
+
+
+.loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #4aa48c;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.user-loading-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
