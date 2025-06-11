@@ -97,7 +97,7 @@ const ExamplePage = () => {
     onSubmit: async (values) => {
       setDisableSubmit(true);
       const req = {
-        winningDigit: +values.winningDigit,
+        winningDigit: values.winningDigit,
         resultDate: today(values.resultDate),
         session: values.session,
         providerId: values.providerId,
