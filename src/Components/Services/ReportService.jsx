@@ -13,7 +13,7 @@ export const ALL_GAME_REPORT_API = async (api_Route, data, token) => {
   }
 };
 
-export const JACKPOT_BIDS_REPORT_API = async (data, token) => {
+export const JACKPOT_BIDS_REPORT_API = async (api_Route, data, token) => {
   try {
     const res = await axios.post(`${BASE_URL}${api_Route}`, data, {
       // const res = await axios.post(
@@ -29,8 +29,6 @@ export const JACKPOT_BIDS_REPORT_API = async (data, token) => {
 };
 
 export const GET_REPORT_DETAILS_API = async (api_Route, token) => {
-
-
   try {
     const res = await axios.get(`${BASE_URL}${api_Route}`, {
       headers: header(token),

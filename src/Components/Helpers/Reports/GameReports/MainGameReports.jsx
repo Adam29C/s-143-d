@@ -167,11 +167,14 @@ const MainGameReports = ({
             totalPointDifference: totalPointDifference,
           });
 
+          finalaray.sort((a, b) => {
+            const parseTime = (timeStr) => new Date(`1970/01/01 ${timeStr}`);
+            return parseTime(a.providerName) - parseTime(b.providerName);
+          });
           setTableData(finalaray);
           getGameProvidersList();
         }
       } catch (error) {
-  
         const errorMessage =
           error.response?.data?.message ||
           "Something went wrong. Please try again.";

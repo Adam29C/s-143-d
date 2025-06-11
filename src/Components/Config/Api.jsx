@@ -316,6 +316,7 @@ const Api = {
   ACTIViACTIVE: "nnData/api/admin/activate-gateway",
   GETSTATUS: "nnData/get-call-feature-status",
   UPDATE_TOGGLE_FEATURE: "nnData/toggle-call-feature",
+  JACKPOT__TOTAL_BIDS_REPORT: "abTotalBid/andarBaharBidsData",
 };
 
 export { Api };

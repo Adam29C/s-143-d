@@ -81,6 +81,7 @@ const AndarBharTotalBids = ({ gameType, report_api, starandjackProvider }) => {
 
         const response =
           await PagesIndex.report_service.JACKPOT_BIDS_REPORT_API(
+            Api.JACKPOT__TOTAL_BIDS_REPORT,
             paylaod,
             token
           );
@@ -106,14 +107,13 @@ const AndarBharTotalBids = ({ gameType, report_api, starandjackProvider }) => {
     },
   });
 
-  
-    useEffect(() => {
-      if (ProviderList?.length > 0) {
-        formik.setFieldValue("gameId", ProviderList?.[0]._id);
-        // formik.setFieldValue("providerName", ProviderList?.[0].providerName);
-      }
-    }, [ProviderList]);
- 
+  useEffect(() => {
+    if (ProviderList?.length > 0) {
+      formik.setFieldValue("gameId", ProviderList?.[0]._id);
+      // formik.setFieldValue("providerName", ProviderList?.[0].providerName);
+    }
+  }, [ProviderList]);
+
   // const resss = async () => {
   //   try {
   //     const paylaod = {
