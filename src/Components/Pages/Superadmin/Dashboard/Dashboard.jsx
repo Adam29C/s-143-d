@@ -478,6 +478,10 @@ const Dashboard_Component = () => {
                         <td>SOFTX GATWAY ADD AMOUNT</td>
                         <td>{TodayDesposite?.softxgatway} /-</td>
                       </tr>
+                       <tr>
+                        <td>TOTAL GATWAY AMOUNT</td>
+                        <td>{TodayDesposite.totalGatwayAmount} /-</td>
+                      </tr>
                       {/* <tr>
                         <td>GATWAY ADD AMOUNT</td>
                         <td>{TodayDesposite.totalGatwayAmount} /-</td>
