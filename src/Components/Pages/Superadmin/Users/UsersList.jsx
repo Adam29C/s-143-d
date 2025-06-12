@@ -45,11 +45,11 @@ const App = () => {
   // }, [ first]);
 
   const visibleFields = [
-    {
-      name: "Name",
-      value: "name",
-      sortable: true,
-    },
+    // {
+    //   name: "Name",
+    //   value: "name",
+    //   sortable: true,
+    // },
     {
       name: "User Name",
       value: "username",

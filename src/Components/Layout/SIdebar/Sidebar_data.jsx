@@ -108,7 +108,7 @@ export const admin_Sidebar = [
       },
       {
         id: 7,
-        title: "Refund User Points",
+        title: "Star Refund User Points",
         route: "starline/refundlist",
         permission: "starlinerefundpayment",
       },
@@ -160,7 +160,7 @@ export const admin_Sidebar = [
       },
       {
         id: 7,
-        title: "Refund User Points",
+        title: "Jackpot Refund User Points",
         permission: "jackpotrefundpayment",
         route: "jackpot/refundlist",
       },
@@ -209,7 +209,7 @@ export const admin_Sidebar = [
     id: 19,
     route: "wallet/gatwaypaymenthistory",
     headerTitle: "Gateways",
-    permission: "masters",
+    permission: "gatewayrequestmain",
     title: "Gateway Requests",
     Icon: "fa-solid fa-dollar-sign",
     NestedElement: [
@@ -240,6 +240,86 @@ export const admin_Sidebar = [
       },
     ],
   },
+
+  // {
+  //   id: 9,
+  //   route: "creditUPI",
+  //   headerTitle: "Credit Request (UPI)",
+  //   permission: "appDebit",
+  //   title: "Credit Request (UPI)",
+  //   Icon: "fa-solid fa-check",
+  //   NestedElement: [],
+  // },
+  {
+    id: 10,
+    headerTitle: "Other Withdrawal Requests",
+    title: "Manual In/Out Request",
+    route: "",
+    permission: "withdrawrequest",
+    Icon: "fa-solid fa-dollar-sign",
+    NestedElement: [
+      {
+        id: 1,
+        title: "Bank Account(Export)",
+        permission: "bankReq",
+        route: "approvedReports/bank",
+      },
+      {
+        id: 2,
+        title: "Bank Account(Manual)",
+        permission: "bankReq",
+        route: "approvedReports/bankManual",
+      },
+      {
+        id: 3,
+        title: "Export Debit Report",
+        permission: "exportDebit",
+        route: "wallet/debitreport",
+      },
+      {
+        id: 4,
+        title: "Download Debit Report",
+        permission: "exportDebit",
+        route: "wallet/debitReport/moneyCheck",
+      },
+      {
+        id: 5,
+        title: "Pending Bank Requests",
+        permission: "pendingBankReq",
+        route: "fundRequest/pendingBank",
+      },
+      {
+        id: 6,
+        title: "Declined Request",
+        permission: "decDebit",
+        route: "approvedReports/declined",
+      },
+      {
+        id: 7,
+        title: "UPI Id",
+        route: "masters/UPI",
+        permission: "upiId",
+      },
+      {
+        id: 8,
+        title: "Add Fund Mode",
+        permission: "addFoundMode",
+        route: "masters/fundMode",
+      },
+      {
+        id: 9,
+        title: "UPI Fund Report",
+        route: "report/newupifundreport",
+        permission: "upiReport",
+      },
+      {
+        id: 10,
+        title: "Fund Report",
+        route: "report/fundreport",
+        permission: "upiReport",
+      },
+    ],
+  },
   {
     id: 8,
     route: "",
@@ -261,18 +341,7 @@ export const admin_Sidebar = [
       //   permission: "wallet",
       //   route: "wallet/manualrequest",
       // },
-      {
-        id: 2,
-        title: "Export Debit Report",
-        permission: "exportDebit",
-        route: "wallet/debitreport",
-      },
-      {
-        id: 3,
-        title: "Download Debit Report",
-        permission: "exportDebit",
-        route: "wallet/debitReport/moneyCheck",
-      },
+
       {
         id: 4,
         permission: "exportDebit",
@@ -301,49 +370,6 @@ export const admin_Sidebar = [
     ],
   },
 
-  // {
-  //   id: 9,
-  //   route: "creditUPI",
-  //   headerTitle: "Credit Request (UPI)",
-  //   permission: "appDebit",
-  //   title: "Credit Request (UPI)",
-  //   Icon: "fa-solid fa-check",
-  //   NestedElement: [],
-  // },
-  {
-    id: 10,
-    headerTitle: "Other Withdrawal Requests",
-    title: "Withdrawal Requests",
-    route: "",
-    permission: "withdrawrequest",
-    Icon: "fa-solid fa-check",
-    NestedElement: [
-      {
-        id: 1,
-        title: "Bank Account(Export)",
-        permission: "bankReq",
-        route: "approvedReports/bank",
-      },
-      {
-        id: 2,
-        title: "Bank Account(Manual)",
-        permission: "bankReq",
-        route: "approvedReports/bankManual",
-      },
-      {
-        id: 3,
-        title: "Pending Bank Requests",
-        permission: "fundRequest",
-        route: "fundRequest/pendingBank",
-      },
-      {
-        id: 4,
-        title: "Declined Request",
-        permission: "decDebit",
-        route: "approvedReports/declined",
-      },
-    ],
-  },
   // {
   //   id: 11,
   //   route: "",
@@ -404,12 +430,7 @@ export const admin_Sidebar = [
         route: "report/abtotalbids",
         permission: "abTotalBids",
       },
-      {
-        id: 5,
-        title: "Fund Report",
-        route: "report/fundreport",
-        permission: "upiReport",
-      },
+
       // {
       //   id: 6,
       //   title: "UPI Fund Report",
@@ -417,12 +438,6 @@ export const admin_Sidebar = [
       //   permission: "upiReport",
       // },
 
-      {
-        id: 7,
-        title: "UPI Fund Report",
-        route: "report/newupifundreport",
-        permission: "upiReport",
-      },
       // {
       //   id: 8,
       //   title: "Trak Pay Fund Report",
@@ -514,20 +529,17 @@ export const admin_Sidebar = [
   {
     id: 17,
     route: "users/deleted",
-
     title: "Deleted Users",
-    permission: "delete",
+    permission: "deleteUser",
     Icon: "fa-regular fa-bell",
     NestedElement: [],
   },
-
   {
     id: 18,
     route: "",
     headerTitle: "App Settings",
     title: "App Settings",
     permission: "app_settings",
-
     Icon: "fa-solid fa-cog",
     NestedElement: [
       {
@@ -584,18 +596,6 @@ export const admin_Sidebar = [
       //   permission: "managegatways",
       //   route: "masters/gatways",
       // },
-      {
-        id: 1,
-        title: "UPI Id",
-        route: "masters/UPI",
-        permission: "upiId",
-      },
-      {
-        id: 2,
-        title: "Add Fund Mode",
-        permission: "addFoundMode",
-        route: "masters/fundMode",
-      },
 
       {
         id: 3,

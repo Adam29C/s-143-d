@@ -23,7 +23,6 @@ const Dashboard_Component = () => {
 
   const [TotalPages, setTotalPages] = PagesIndex.useState(1);
 
-
   const [TableData, setTableData] = PagesIndex.useState([]);
 
   const { countDlt, data, yesTerday } = (DashboardData && DashboardData) || [];
@@ -90,9 +89,7 @@ const Dashboard_Component = () => {
           setuserFundArr(res1.data.userFundArr || []);
         }
         setTableData(res1.data.todayRegistered || []);
-      } catch (error) {
-    
-      }
+      } catch (error) {}
     }
   };
 
@@ -115,7 +112,6 @@ const Dashboard_Component = () => {
   };
 
   const test12 = async (page, rowsPerPage, searchQuery) => {
-   
     if (IsSUbmitted) {
       try {
         const payload = {
@@ -134,8 +130,6 @@ const Dashboard_Component = () => {
 
           const totalRows = res1.data?.pagination?.totalUsers;
 
-        
-
           if (getstatus1 === 1) {
             setTableData(res1.data.todayRegistered || []);
             setTotalPages(totalRows);
@@ -143,9 +137,7 @@ const Dashboard_Component = () => {
             setuserFundArr(res1.data.userFundArr || []);
           }
           setTableData(res1.data.todayRegistered || []);
-        } catch (error) {
-        
-        }
+        } catch (error) {}
       } catch {}
     }
   };
@@ -155,7 +147,6 @@ const Dashboard_Component = () => {
   }, [UserPagenateData.pageno, UserPagenateData.limit]);
 
   const test = async (page, rowsPerPage, searchQuery) => {
-
     if (IsSUbmitted) {
       setModalState(true);
 
@@ -246,8 +237,6 @@ const Dashboard_Component = () => {
     { name: "Device-Id", value: "deviceId", sortable: true },
     { name: "CreatedAt", value: "CreatedAt", sortable: true },
   ];
-
- 
 
   return (
     <div>
@@ -486,9 +475,13 @@ const Dashboard_Component = () => {
                           );
                         })} */}
                       <tr>
+                        <td>SOFTX GATWAY ADD AMOUNT</td>
+                        <td>{TodayDesposite?.softxgatway} /-</td>
+                      </tr>
+                      {/* <tr>
                         <td>GATWAY ADD AMOUNT</td>
                         <td>{TodayDesposite.totalGatwayAmount} /-</td>
-                      </tr>
+                      </tr> */}
                       <tr>
                         <td>MANUAL ADD AMOUNT</td>
                         <td>{TodayDesposite.totalManualPayment} /-</td>

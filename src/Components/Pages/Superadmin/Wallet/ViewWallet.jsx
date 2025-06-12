@@ -341,11 +341,11 @@ const ViewWallet = () => {
       value: "username",
       sortable: true,
     },
-    {
-      name: "Full Name",
-      value: "name",
-      sortable: false,
-    },
+    // {
+    //   name: "Full Name",
+    //   value: "name",
+    //   sortable: false,
+    // },
     {
       name: "Mobile",
       value: "mobile",

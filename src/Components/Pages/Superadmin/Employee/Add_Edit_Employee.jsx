@@ -167,6 +167,10 @@ function AddEmployee() {
 
   const formik22 = formik1;
 
+
+  console.log("admin_Sidebar" ,admin_Sidebar);
+  
+
   let arra = [];
   admin_Sidebar.forEach((item) => {
     let nastedarra = [];
